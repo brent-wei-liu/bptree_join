@@ -1,0 +1,2 @@
+load test from 'test.del' with index
+select * from test

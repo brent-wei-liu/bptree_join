@@ -1,0 +1,27 @@
+Part A: Implement LOAD Command
+    ./bruinbase
+    load movie from 'movie.del'
+    select count(*) from movie
+    select * from movie
+
+
+GDB:
+
+gdb ./bruinbase
+set args <testcase1.txt
+set  print  pretty on 
+b SqlEngine.cc:421
+b BTreeNode.cc:156
+b BTreeIndex.cc:144
+
+gdb ./bruinbase
+set args -d p <testcase3.txt
+set  print  pretty on 
+b main.cc:17
+b Bruinbase.cc:47
+
+gdb ./bruinbase
+set args -d
+set  print  pretty on 
+b SqlEngine.cc:421
+
