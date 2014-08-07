@@ -4,6 +4,8 @@ Part A: Implement LOAD Command
     select count(*) from movie
     select * from movie
 
+./bruinbase -d i <testcase4join.txt >log.log
+
 
 GDB:
 

@@ -452,7 +452,7 @@ public:
     void printAll()
     {
         print();
-        printf("\nNeightbours: ");
+        printf("\n\tNeightbours (%d): ",heap.size());
         printNeighbour();
         printf("\n");
     }
@@ -468,11 +468,11 @@ public:
     }
     int del( IntervalNode *node)
     {
-        /*printf("Delete neighbour to ");
+        printf("Delete neighbour to ");
         node->print();
         printf("\n");
         printAll();
-        */
+        
         vector<IntervalNode*>::iterator it = heap.begin();
         for(; it!= heap.end(); it++)
         {
@@ -509,16 +509,28 @@ public:
             (*it)->print();
         }
     }
-    IntervalNode* findBiggestRange(IntervalNode * node)
+    IntervalNode* biggestNeighbour()
     {
-        IntervalNode* biggest = node;
+        IntervalNode* biggest = NULL;
         //find big range in neighbours
-        /*
-        if( !neighbours.empty() ){
-            biggest = topNeighbour();
-            popNeighbour();
-        }*/
+        
+        if( !this->empty() ){
+            biggest = this->heap.front();
+        }else{
+            printf("Biggest Neighbour error!");
+        }
+
         return biggest;
+    }
+    int addNeighbour(IntervalNode* to)
+    {
+        this->push(to);
+        return 0;
+    }
+    int deleteNeighbour(IntervalNode* to)
+    {
+        this->del( to );
+        return 0;
     }
 
 };
@@ -534,19 +546,22 @@ static bool overlap(KeyType key, Range r)
 
 static bool overlap(Range r1, Range r2)
 {
+    bool result;
     if(r1.min < r2.max && r2.min < r1.max)
-        return true;
+        result = true;
     else
-        return false;
+        result =  false;
+    printf(" overlap( (%d, %d), (%d, %d) )=%d\n", r1.min, r1.max, r2.min, r2.max, result);
+    return result;
 }
 
 
 class IntervalList
 {
 private:
-    list<IntervalNode*> l;
     BTreeIndex * idx;
 public:
+    list<IntervalNode*> l;
     string name;
     IntervalList(string n, BTreeIndex *i):name(n), idx(i)
     {
@@ -579,33 +594,56 @@ public:
         l.pop_front();
         return node;
     }
-    int addNeighbour(IntervalNode* from, IntervalNode* to)
-    {
-        from->push(to);
-        return 0;
+    void eraseEmptyNodes(){
+        list<IntervalNode*>::iterator it1 = l.begin(), it2;
+        cout<<"Delete empty nodes:"<<endl;
+        while(it1 != l.end()) {
+            if( (*it1)->empty() ){
+                printf("Delete Node:%d(%d, %d) is empty, delete it!\n", 
+                        (*it1)->pid, 
+                        (*it1)->range.min, 
+                        (*it1)->range.max);
+                it2 = it1;
+                it1++;
+                l.erase(it2); 
+            }else{
+              it1 ++;
+            }
+        }
     }
-    int deleteNeighbour(IntervalNode* from, IntervalNode* to)
+
+    void erase(IntervalNode * node)
     {
-        from->del( to );
-        return 0;
+        list<IntervalNode*>::iterator it = l.begin();
+        while(it!=l.end()){
+            if( (*it)->pid == node->pid ){
+                 printf("Erase Node:%d(%d, %d) in %s\n", (*it)->pid, (*it)->range.min, (*it)->range.max,name.c_str());
+                l.erase( it );
+                break;
+            }
+            it ++;
+        }
+        if(it == l.end()){
+             printf("Erase Node:%d(%d, %d) in %s Failed!\n", node->pid, node->range.min, node->range.max,name.c_str());
+        }
     }
-    RC openNode()
+
+    RC openNode( IntervalNode * chosenOne)
     {
-        IntervalNode * chosenOne = NULL;
         PageId cPid;
-        chosenOne = this->pop();
+
         chosenOne->print();
         cout<<endl;
         BTNode bnode;
         RC rc;
         int i;
+        
 
         vector<IntervalNode*>::iterator it1 = chosenOne->heap.begin();
         while( it1 != chosenOne->heap.end() ){
-            this->deleteNeighbour( (*it1), chosenOne );
+            (*it1)->deleteNeighbour( chosenOne );
             it1++;
         }
-
         rc = idx->getBTNode(chosenOne->pid, bnode);
         if(rc != 0){
             return rc;
@@ -623,11 +661,17 @@ public:
                 
                 vector<IntervalNode*>::iterator it = chosenOne->heap.begin();
                 while( it != chosenOne->heap.end() ){
-                    if(overlap( (*it)->range, childNode->range)){
-                        this->addNeighbour(childNode, (*it) );
-                        this->addNeighbour( (*it),childNode );
+                    if( (*it)->pid == -1 ){
+                        if(overlap( (*it)->range.min, childNode->range)){
+                            childNode->addNeighbour( (*it) );
+                            (*it)->addNeighbour( childNode );
+                        }
+                    }else{
+                        if(overlap( (*it)->range, childNode->range)){
+                            childNode->addNeighbour( (*it) );
+                            (*it)->addNeighbour( childNode );
+                        }
                     }
-                   
                     it++;
                 }
                 max = min;
@@ -649,13 +693,13 @@ public:
                     if( (*it)->pid == -1){
                         //printf("join out:[%d, %d]\n",key);
                         if( key == (*it)->range.min ){
-                            this->addNeighbour(childNode, (*it) );
-                            this->addNeighbour( (*it),childNode );
+                            childNode->addNeighbour( (*it) );
+                            (*it)->addNeighbour( childNode );
                         }
                     }else{
                         if(overlap( key, (*it)->range)){
-                            this->addNeighbour(childNode, (*it) );
-                            this->addNeighbour( (*it),childNode );
+                            childNode->addNeighbour( (*it) );
+                            (*it)->addNeighbour( childNode );
                         }
                     }
                     it++;
@@ -668,6 +712,7 @@ public:
                 }
             }
         }
+        this->erase( chosenOne );
         delete chosenOne;
         chosenOne = NULL;
         return 0;
@@ -729,12 +774,12 @@ RC SqlEngine::join(const string& tableR, const string& tableS)
 
     R.push( n1 );
     S.push( n2 );
-    R.addNeighbour( n1, n2);
-    S.addNeighbour( n2, n1);
+    n1->addNeighbour( n2);
+    n2->addNeighbour( n1);
 
     int k = 0;
     while( !R.empty() && !S.empty() ){
-        printf("-----------------Output----------------\n");
+        printf("-----------------Output:");
         while( R.front()->pid == -1 && S.front()->pid == -1){
             IntervalNode * rn = R.pop();
             IntervalNode * sn = S.pop();
@@ -749,14 +794,36 @@ RC SqlEngine::join(const string& tableR, const string& tableS)
             delete sn;
         }
         if( R.empty() || S.empty()) break;
-        printf("\n---------------- Opening Nodes:");
+
+        IntervalNode *left, *chosenOne, *bn;
         if( R.front()->range.min <= S.front()->range.min  && R.front()->pid != -1 ){
-            R.openNode();  
+            left = R.front();
+            bn = left->biggestNeighbour();
+            if( (bn->range.max - bn->range.min) > (left->range.max - left->range.min) ){
+                printf("\n---------------- Opening Nodes of List S:\n");
+                S.openNode( bn );
+            }else{
+                printf("\n---------------- Opening Nodes of List R:\n");
+                R.openNode( left );
+            }
         }else{
-            S.openNode();
+            left = S.front();
+            bn = left->biggestNeighbour();
+            if( (bn->range.max - bn->range.min) > (left->range.max - left->range.min) ){
+                printf("\n---------------- Opening Nodes of List R:\n");
+                R.openNode( bn );
+            }else{
+                printf("\n---------------- Opening Nodes of List S:\n");
+                S.openNode( left );
+            }
         }
+
         R.printList();
         S.printList();
+        R.eraseEmptyNodes();
+        S.eraseEmptyNodes();
+
+
         //if( k++ == 6) break;
     }
 
