@@ -76,7 +76,14 @@ class BTreeIndex {
    * @return error code. 0 if no error
    */
   RC readForward(IndexCursor& cursor, KeyType& key, RecordId& rid) const;
-  
+  /*
+   * Read the cursor of first key ib b+tree,
+   * and move foward the cursor to the next entry.
+   * @param cursor[OUT] the cursor pointing to the first leaf-node index entry in the b+tree
+   * @return error code. 0 if no error
+   */
+  RC getFirstKey(IndexCursor& cursor) const;
+ 
   int newPid;
   RC printTree();
   PageId   rootPid;    /// the PageId of the root node

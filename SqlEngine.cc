@@ -720,7 +720,6 @@ public:
 };
 
 
-
 RC SqlEngine::join(const string& tableR, const string& tableS)
 {
     RC rc = 0;
@@ -825,6 +824,85 @@ RC SqlEngine::join(const string& tableR, const string& tableS)
 
 
         //if( k++ == 6) break;
+    }
+
+EXIT:    
+    idxR.close();
+    rfR.close();
+    idxS.close();
+    rfS.close();
+    if(rc != 0) cout<<"error"<<endl;
+    return rc;
+}
+
+RC SqlEngine::normal_join(const string& tableR, const string& tableS)
+{
+    RC rc = 0;
+    BTreeIndex idxR;
+    BTreeIndex idxS;
+    RecordFile rfR;   // RecordFile containing the tableR
+    RecordFile rfS;   // RecordFile containing the tableS
+    RecordId rid;
+    IndexCursor cursor;
+    string value;
+    KeyType key, searchKey, startKey, endKey;
+    int     bpagecnt, epagecnt;
+    int i;
+
+    
+    cout<< "JOIN "<<tableR<<" AND "<<tableS<<endl;
+    rc = rfR.open( tableR + ".tbl", 'w');
+    if(rc != 0){
+        cout<<"error:"<<tableR<<".tbl"<<endl;
+        return rc;
+    }
+    
+    rc = idxR.open( tableR + ".idx", 'w'); 
+    if(rc != 0) {
+        cout<<"error:"<<tableR<<".idx"<<endl;
+        return rc;
+    }
+    rc = rfS.open( tableS + ".tbl", 'w');
+    if(rc != 0){
+        cout<<"error:"<<tableS<<".tbl"<<endl;
+        return rc;
+    }
+    
+    rc = idxS.open( tableS + ".idx", 'w'); 
+    if(rc != 0) {
+        cout<<"error:"<<tableS<<".idx"<<endl;
+        return rc;
+    }
+    if(DebugIsEnabled('j')) {
+        idxR.printTree();
+        idxS.printTree();
+    }
+    IndexCursor cursorR(idxR.rootPid, 0);
+    IndexCursor cursorS(idxS.rootPid, 0);
+    KeyType keyR,keyS;
+    KeyType rfkeyR,rfkeyS;
+    RecordId recR, recS;
+    string valueR,valueS;
+    idxR.getFirstKey( cursorR );
+    idxS.getFirstKey( cursorS );
+    idxR.readForward( cursorR, keyR, recR );
+    idxS.readForward( cursorS, keyS, recS );
+    rfR.read(recR, rfkeyR, valueR);
+    rfS.read(recS, rfkeyS, valueS);
+
+    while( cursorR.pid != -1  && cursorS.pid != -1){
+        if( keyR == keyS ){
+            printf("Node R: (%d, \"%s\")\n",keyR, valueR.c_str());
+            printf("Node S: (%d, \"%s\")\n\n",keyS, valueS.c_str());
+            idxR.readForward( cursorR, keyR, recR );
+            idxS.readForward( cursorS, keyS, recS );
+            rfR.read(recR, rfkeyR, valueR);
+            rfS.read(recS, rfkeyS, valueS);
+        }else if( keyR < keyS ){
+            idxR.readForward( cursorR, keyR, recR );
+        }else{
+            idxS.readForward( cursorS, keyS, recS );
+        }
     }
 
 EXIT:    

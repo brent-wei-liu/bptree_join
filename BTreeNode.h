@@ -19,12 +19,14 @@ typedef int KeyType;
  * eid (the location of the index entry inside the node).
  * IndexCursor is used for index lookup and traversal.
  */
-typedef struct {
+struct  IndexCursor{
   // PageId of the index entry
   PageId  pid;
   // The entry number inside the node
   int     eid;
-} IndexCursor;
+  IndexCursor(PageId p, int e): pid(p), eid(e){}
+  IndexCursor(): pid(0), eid(0){}
+};
 
 
 /**

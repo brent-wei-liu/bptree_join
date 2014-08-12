@@ -1,0 +1,7 @@
+load test from 'test.del' with index
+select * from test
+load test3 from 'test3.del' with index
+select * from test3
+
+normal join test and test3
+

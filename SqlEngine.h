@@ -69,6 +69,14 @@ class SqlEngine {
   static RC parseLoadLine(const std::string& line, int& key, std::string& value);
 
   /**
+   * join tow indexed tables using normal algorithm
+   * @param tableR[IN] the table name 
+   * @param tableS[IN] the table name
+   * @return error code. 0 if no error
+   */
+  static RC normal_join(const std::string& tableR, const std::string& tableS);
+
+  /**
    * join tow indexed tables 
    * @param tableR[IN] the table name 
    * @param tableS[IN] the table name

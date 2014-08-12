@@ -35,6 +35,7 @@ OR|or       return OR;
 ">="		return GREATEREQUAL;
 "<="  		return LESSEQUAL;
 JOIN|join   return JOIN;
+NORMAL|normal   return NORMAL;
 
 \-?[0-9]+                sqllval.string = strdup(sqltext); return INTEGER;
 '[^']*'                  sqllval.string = strdup(sqltext+1); sqllval.string[sqlleng-2] = 0; return STRING;

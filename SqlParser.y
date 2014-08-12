@@ -58,6 +58,22 @@ static void runJoin(const char* tableR, const char* tableS)
   fprintf(stderr, "  -- %.3f seconds to run the join command. Read %d pages\n", ((float)(etime - btime))/sysconf(_SC_CLK_TCK), epagecnt - bpagecnt);
 
 }
+
+static void runNormalJoin(const char* tableR, const char* tableS)
+{
+  struct tms tmsbuf;
+  clock_t btime, etime;
+  int     bpagecnt, epagecnt;
+
+  btime = times(&tmsbuf);
+  bpagecnt = PageFile::getPageReadCount();
+  SqlEngine::normal_join(std::string(tableR), std::string(tableS)); 
+  etime = times(&tmsbuf);
+  epagecnt = PageFile::getPageReadCount();
+
+  fprintf(stderr, "  -- %.3f seconds to run the normal join command. Read %d pages\n", ((float)(etime - btime))/sysconf(_SC_CLK_TCK), epagecnt - bpagecnt);
+
+}
 %}
 
 %union {
@@ -67,7 +83,7 @@ static void runJoin(const char* tableR, const char* tableS)
   std::vector<SelCond>* conds;
 }
 
-%token SELECT FROM WHERE LOAD WITH INDEX QUIT COUNT AND OR JOIN 
+%token SELECT FROM WHERE LOAD WITH INDEX QUIT COUNT AND OR JOIN NORMAL 
 %token COMMA STAR LF
 %token <string> INTEGER STRING ID
 %token EQUAL NEQUAL LESS LESSEQUAL GREATER GREATEREQUAL 
@@ -88,6 +104,7 @@ command:
       load_command   { fprintf(stdout, "Bruinbase> "); }
 	| select_command { fprintf(stdout, "Bruinbase> "); }
 	| join_command { fprintf(stdout, "Bruinbase> "); }
+	| normal_join_command { fprintf(stdout, "Bruinbase> "); }
 	| quit_command
 	| error LF       { fprintf(stdout, "Bruinbase> "); }
 	| LF             { fprintf(stdout, "Bruinbase> "); }
@@ -125,6 +142,14 @@ select_command:
 	  	delete $6;
 	}
 	;
+normal_join_command:
+    NORMAL JOIN table AND table LF{
+        runNormalJoin($3, $5);
+        free($3);
+        free($5);
+    }
+    ;
+
 join_command:
     JOIN table AND table LF{
         runJoin($2, $4);

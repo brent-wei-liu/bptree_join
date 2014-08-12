@@ -50,18 +50,19 @@
      AND = 266,
      OR = 267,
      JOIN = 268,
-     COMMA = 269,
-     STAR = 270,
-     LF = 271,
-     INTEGER = 272,
-     STRING = 273,
-     ID = 274,
-     EQUAL = 275,
-     NEQUAL = 276,
-     LESS = 277,
-     LESSEQUAL = 278,
-     GREATER = 279,
-     GREATEREQUAL = 280
+     NORMAL = 269,
+     COMMA = 270,
+     STAR = 271,
+     LF = 272,
+     INTEGER = 273,
+     STRING = 274,
+     ID = 275,
+     EQUAL = 276,
+     NEQUAL = 277,
+     LESS = 278,
+     LESSEQUAL = 279,
+     GREATER = 280,
+     GREATEREQUAL = 281
    };
 #endif
 
@@ -72,7 +73,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 63 "SqlParser.y"
+#line 79 "SqlParser.y"
 
   int integer;
   char* string;
@@ -82,7 +83,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 86 "SqlParser.tab.h"
+#line 87 "SqlParser.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

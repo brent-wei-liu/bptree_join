@@ -261,6 +261,31 @@ ERROR:
     printf("readForward error\n");
     return rc;
 }
+/*
+ * Read the cursor of first key ib b+tree,
+ * and move foward the cursor to the next entry.
+ * @param cursor[OUT] the cursor pointing to the first leaf-node index entry in the b+tree
+ * @return error code. 0 if no error
+ */
+RC BTreeIndex::getFirstKey(IndexCursor& cursor) const
+{
+    RC rc;
+    BTNode node;
+    rc = node.read(rootPid, pf);
+    if(rc != 0) goto ERROR;
+
+    while(!node.isLeaf) {
+        rc = node.read(node.pids[0],pf);
+        if(rc != 0) goto ERROR;
+    }
+    cursor.pid = node.pid;
+    cursor.eid = 0;
+    return 0;
+ERROR:
+    printf("readFirstKey error\n");
+    return rc;
+}
+
 
 RC BTreeIndex::getBTNode(int pid, BTNode &node)
 {
