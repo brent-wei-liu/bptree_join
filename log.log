@@ -1,2731 +1,2971 @@
-Bruinbase> LOAD test FROM test.del WITH INDEX
+Bruinbase> LOAD test FROM test9.del WITH INDEX
 Write to slot: (pid,sid)=(0,0)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:2342 into Tree , RecordId={pid:0, sid:0} ******
-initializeRoot keys[0x11]:0x926 pids[0x41]
+************* Insert key:3 into Tree , RecordId={pid:0, sid:0} ******
+initializeRoot keys[0x11]:0x3 pids[0x41]
 WARNING:pid[-1] != p[1]
 WARNING:pid[-1] != p[2]
 WARNING:pid[-1] != p[3]
-insert pid[3] : key[2342] -> keys[0]
-pid:3 n:1 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:2342
-position:0		key:2342		rid:{0,0}
+insert pid:3 : key:3 -> keys[0]
+pid:3 n:1 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:3
+position:0		key:3		rid:{0,0}
 
 Write to slot: (pid,sid)=(0,1)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:41 into Tree , RecordId={pid:0, sid:1} ******
-insert to non leaf node pid[1] : key[41]
-pid:1 n:1 Max_n:12 t:6 minKey:2342 maxKey:2342
+************* Insert key:778 into Tree , RecordId={pid:0, sid:1} ******
+insert to non leaf node pid:1 : key:778
+pid:1 n:1 Max_n:12 t:6 minKey:3 maxKey:3
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
 
-i:0
+i:1
 
 Read Leaf Node page:
-pid:2 n:0 Max_n:9 t:5 nextPage:3 minKey:2147483647 maxKey:-2147483648
+pid:3 n:1 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:3
+position:0		key:3		rid:{0,0}
 
-insert pid[2] : key[41] -> keys[0]
-pid:2 n:1 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:41
-position:0		key:41		rid:{0,1}
+insert pid:3 : key:778 -> keys[1]
+pid:3 n:2 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:778
+position:0		key:3		rid:{0,0}
+position:1		key:778		rid:{0,1}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(0,2)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:2634 into Tree , RecordId={pid:0, sid:2} ******
-insert to non leaf node pid[1] : key[2634]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:2342
+************* Insert key:520 into Tree , RecordId={pid:0, sid:2} ******
+insert to non leaf node pid:1 : key:520
+pid:1 n:1 Max_n:12 t:6 minKey:3 maxKey:778
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
 
 i:1
 
 Read Leaf Node page:
-pid:3 n:1 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:2342
-position:0		key:2342		rid:{0,0}
+pid:3 n:2 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:778
+position:0		key:3		rid:{0,0}
+position:1		key:778		rid:{0,1}
 
-insert pid[3] : key[2634] -> keys[1]
-pid:3 n:2 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:2634
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
+insert pid:3 : key:520 -> keys[1]
+pid:3 n:3 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:778
+position:0		key:3		rid:{0,0}
+position:1		key:520		rid:{0,2}
+position:2		key:778		rid:{0,1}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(0,3)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:3992 into Tree , RecordId={pid:0, sid:3} ******
-insert to non leaf node pid[1] : key[3992]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:2634
+************* Insert key:722 into Tree , RecordId={pid:0, sid:3} ******
+insert to non leaf node pid:1 : key:722
+pid:1 n:1 Max_n:12 t:6 minKey:3 maxKey:778
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
 
 i:1
 
 Read Leaf Node page:
-pid:3 n:2 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:2634
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
+pid:3 n:3 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:778
+position:0		key:3		rid:{0,0}
+position:1		key:520		rid:{0,2}
+position:2		key:778		rid:{0,1}
 
-insert pid[3] : key[3992] -> keys[2]
-pid:3 n:3 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:3992		rid:{0,3}
+insert pid:3 : key:722 -> keys[2]
+pid:3 n:4 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:778
+position:0		key:3		rid:{0,0}
+position:1		key:520		rid:{0,2}
+position:2		key:722		rid:{0,3}
+position:3		key:778		rid:{0,1}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(0,4)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:2965 into Tree , RecordId={pid:0, sid:4} ******
-insert to non leaf node pid[1] : key[2965]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:3992
+************* Insert key:185 into Tree , RecordId={pid:0, sid:4} ******
+insert to non leaf node pid:1 : key:185
+pid:1 n:1 Max_n:12 t:6 minKey:3 maxKey:778
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
 
 i:1
 
 Read Leaf Node page:
-pid:3 n:3 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:3992		rid:{0,3}
+pid:3 n:4 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:778
+position:0		key:3		rid:{0,0}
+position:1		key:520		rid:{0,2}
+position:2		key:722		rid:{0,3}
+position:3		key:778		rid:{0,1}
 
-insert pid[3] : key[2965] -> keys[2]
-pid:3 n:4 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3992		rid:{0,3}
+insert pid:3 : key:185 -> keys[1]
+pid:3 n:5 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:778
+position:0		key:3		rid:{0,0}
+position:1		key:185		rid:{0,4}
+position:2		key:520		rid:{0,2}
+position:3		key:722		rid:{0,3}
+position:4		key:778		rid:{0,1}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(0,5)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:3084 into Tree , RecordId={pid:0, sid:5} ******
-insert to non leaf node pid[1] : key[3084]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:3992
+************* Insert key:809 into Tree , RecordId={pid:0, sid:5} ******
+insert to non leaf node pid:1 : key:809
+pid:1 n:1 Max_n:12 t:6 minKey:3 maxKey:778
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
 
 i:1
 
 Read Leaf Node page:
-pid:3 n:4 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3992		rid:{0,3}
+pid:3 n:5 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:778
+position:0		key:3		rid:{0,0}
+position:1		key:185		rid:{0,4}
+position:2		key:520		rid:{0,2}
+position:3		key:722		rid:{0,3}
+position:4		key:778		rid:{0,1}
 
-insert pid[3] : key[3084] -> keys[3]
-pid:3 n:5 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3992		rid:{0,3}
+insert pid:3 : key:809 -> keys[5]
+pid:3 n:6 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:809
+position:0		key:3		rid:{0,0}
+position:1		key:185		rid:{0,4}
+position:2		key:520		rid:{0,2}
+position:3		key:722		rid:{0,3}
+position:4		key:778		rid:{0,1}
+position:5		key:809		rid:{0,5}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(0,6)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:2244 into Tree , RecordId={pid:0, sid:6} ******
-insert to non leaf node pid[1] : key[2244]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:3992
+************* Insert key:361 into Tree , RecordId={pid:0, sid:6} ******
+insert to non leaf node pid:1 : key:361
+pid:1 n:1 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
 
-i:0
+i:1
 
 Read Leaf Node page:
-pid:2 n:1 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:41
-position:0		key:41		rid:{0,1}
+pid:3 n:6 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:809
+position:0		key:3		rid:{0,0}
+position:1		key:185		rid:{0,4}
+position:2		key:520		rid:{0,2}
+position:3		key:722		rid:{0,3}
+position:4		key:778		rid:{0,1}
+position:5		key:809		rid:{0,5}
 
-insert pid[2] : key[2244] -> keys[1]
-pid:2 n:2 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:2244
-position:0		key:41		rid:{0,1}
-position:1		key:2244		rid:{0,6}
+insert pid:3 : key:361 -> keys[2]
+pid:3 n:7 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:809
+position:0		key:3		rid:{0,0}
+position:1		key:185		rid:{0,4}
+position:2		key:361		rid:{0,6}
+position:3		key:520		rid:{0,2}
+position:4		key:722		rid:{0,3}
+position:5		key:778		rid:{0,1}
+position:6		key:809		rid:{0,5}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(0,7)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:1578 into Tree , RecordId={pid:0, sid:7} ******
-insert to non leaf node pid[1] : key[1578]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:3992
+************* Insert key:279 into Tree , RecordId={pid:0, sid:7} ******
+insert to non leaf node pid:1 : key:279
+pid:1 n:1 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
 
-i:0
+i:1
 
 Read Leaf Node page:
-pid:2 n:2 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:2244
-position:0		key:41		rid:{0,1}
-position:1		key:2244		rid:{0,6}
+pid:3 n:7 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:809
+position:0		key:3		rid:{0,0}
+position:1		key:185		rid:{0,4}
+position:2		key:361		rid:{0,6}
+position:3		key:520		rid:{0,2}
+position:4		key:722		rid:{0,3}
+position:5		key:778		rid:{0,1}
+position:6		key:809		rid:{0,5}
 
-insert pid[2] : key[1578] -> keys[1]
-pid:2 n:3 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:2244
-position:0		key:41		rid:{0,1}
-position:1		key:1578		rid:{0,7}
-position:2		key:2244		rid:{0,6}
+insert pid:3 : key:279 -> keys[2]
+pid:3 n:8 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:809
+position:0		key:3		rid:{0,0}
+position:1		key:185		rid:{0,4}
+position:2		key:279		rid:{0,7}
+position:3		key:361		rid:{0,6}
+position:4		key:520		rid:{0,2}
+position:5		key:722		rid:{0,3}
+position:6		key:778		rid:{0,1}
+position:7		key:809		rid:{0,5}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(1,0)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:3229 into Tree , RecordId={pid:1, sid:0} ******
-insert to non leaf node pid[1] : key[3229]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:3992
+************* Insert key:239 into Tree , RecordId={pid:1, sid:0} ******
+insert to non leaf node pid:1 : key:239
+pid:1 n:1 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
 
 i:1
 
 Read Leaf Node page:
-pid:3 n:5 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3992		rid:{0,3}
+pid:3 n:8 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:809
+position:0		key:3		rid:{0,0}
+position:1		key:185		rid:{0,4}
+position:2		key:279		rid:{0,7}
+position:3		key:361		rid:{0,6}
+position:4		key:520		rid:{0,2}
+position:5		key:722		rid:{0,3}
+position:6		key:778		rid:{0,1}
+position:7		key:809		rid:{0,5}
 
-insert pid[3] : key[3229] -> keys[4]
-pid:3 n:6 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3992		rid:{0,3}
+insert pid:3 : key:239 -> keys[2]
+pid:3 n:9 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:809
+position:0		key:3		rid:{0,0}
+position:1		key:185		rid:{0,4}
+position:2		key:239		rid:{1,0}
+position:3		key:279		rid:{0,7}
+position:4		key:361		rid:{0,6}
+position:5		key:520		rid:{0,2}
+position:6		key:722		rid:{0,3}
+position:7		key:778		rid:{0,1}
+position:8		key:809		rid:{0,5}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(1,1)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:4589 into Tree , RecordId={pid:1, sid:1} ******
-insert to non leaf node pid[1] : key[4589]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:3992
+************* Insert key:689 into Tree , RecordId={pid:1, sid:1} ******
+insert to non leaf node pid:1 : key:689
+pid:1 n:1 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
 
 i:1
 
 Read Leaf Node page:
-pid:3 n:6 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3992		rid:{0,3}
+pid:3 n:9 Max_n:9 t:5 nextPage:-1 minKey:3 maxKey:809
+position:0		key:3		rid:{0,0}
+position:1		key:185		rid:{0,4}
+position:2		key:239		rid:{1,0}
+position:3		key:279		rid:{0,7}
+position:4		key:361		rid:{0,6}
+position:5		key:520		rid:{0,2}
+position:6		key:722		rid:{0,3}
+position:7		key:778		rid:{0,1}
+position:8		key:809		rid:{0,5}
 
-insert pid[3] : key[4589] -> keys[6]
-pid:3 n:7 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:4589
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3992		rid:{0,3}
-position:6		key:4589		rid:{1,1}
+Split Child pid:3  newPid:4
+pid:1 n:2 Max_n:12 t:6 minKey:3 maxKey:809
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:361
+position:2	pid:4
+
+pid:3 n:4 Max_n:9 t:5 nextPage:4 minKey:3 maxKey:279
+position:0		key:3		rid:{0,0}
+position:1		key:185		rid:{0,4}
+position:2		key:239		rid:{1,0}
+position:3		key:279		rid:{0,7}
+
+pid:4 n:5 Max_n:9 t:5 nextPage:-1 minKey:361 maxKey:809
+position:0		key:361		rid:{0,6}
+position:1		key:520		rid:{0,2}
+position:2		key:722		rid:{0,3}
+position:3		key:778		rid:{0,1}
+position:4		key:809		rid:{0,5}
+
+insert pid:4 : key:689 -> keys[2]
+pid:4 n:6 Max_n:9 t:5 nextPage:-1 minKey:361 maxKey:809
+position:0		key:361		rid:{0,6}
+position:1		key:520		rid:{0,2}
+position:2		key:689		rid:{1,1}
+position:3		key:722		rid:{0,3}
+position:4		key:778		rid:{0,1}
+position:5		key:809		rid:{0,5}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(1,2)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:42 into Tree , RecordId={pid:1, sid:2} ******
-insert to non leaf node pid[1] : key[42]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:422 into Tree , RecordId={pid:1, sid:2} ******
+insert to non leaf node pid:1 : key:422
+pid:1 n:2 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:361
+position:2	pid:4
 
-i:0
+i:2
 
 Read Leaf Node page:
-pid:2 n:3 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:2244
-position:0		key:41		rid:{0,1}
-position:1		key:1578		rid:{0,7}
-position:2		key:2244		rid:{0,6}
+pid:4 n:6 Max_n:9 t:5 nextPage:-1 minKey:361 maxKey:809
+position:0		key:361		rid:{0,6}
+position:1		key:520		rid:{0,2}
+position:2		key:689		rid:{1,1}
+position:3		key:722		rid:{0,3}
+position:4		key:778		rid:{0,1}
+position:5		key:809		rid:{0,5}
 
-insert pid[2] : key[42] -> keys[1]
-pid:2 n:4 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:2244
-position:0		key:41		rid:{0,1}
-position:1		key:42		rid:{1,2}
-position:2		key:1578		rid:{0,7}
-position:3		key:2244		rid:{0,6}
+insert pid:4 : key:422 -> keys[1]
+pid:4 n:7 Max_n:9 t:5 nextPage:-1 minKey:361 maxKey:809
+position:0		key:361		rid:{0,6}
+position:1		key:422		rid:{1,2}
+position:2		key:520		rid:{0,2}
+position:3		key:689		rid:{1,1}
+position:4		key:722		rid:{0,3}
+position:5		key:778		rid:{0,1}
+position:6		key:809		rid:{0,5}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(1,3)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:1390 into Tree , RecordId={pid:1, sid:3} ******
-insert to non leaf node pid[1] : key[1390]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:718 into Tree , RecordId={pid:1, sid:3} ******
+insert to non leaf node pid:1 : key:718
+pid:1 n:2 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:361
+position:2	pid:4
 
-i:0
+i:2
 
 Read Leaf Node page:
-pid:2 n:4 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:2244
-position:0		key:41		rid:{0,1}
-position:1		key:42		rid:{1,2}
-position:2		key:1578		rid:{0,7}
-position:3		key:2244		rid:{0,6}
+pid:4 n:7 Max_n:9 t:5 nextPage:-1 minKey:361 maxKey:809
+position:0		key:361		rid:{0,6}
+position:1		key:422		rid:{1,2}
+position:2		key:520		rid:{0,2}
+position:3		key:689		rid:{1,1}
+position:4		key:722		rid:{0,3}
+position:5		key:778		rid:{0,1}
+position:6		key:809		rid:{0,5}
 
-insert pid[2] : key[1390] -> keys[2]
-pid:2 n:5 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:2244
-position:0		key:41		rid:{0,1}
-position:1		key:42		rid:{1,2}
-position:2		key:1390		rid:{1,3}
-position:3		key:1578		rid:{0,7}
-position:4		key:2244		rid:{0,6}
+insert pid:4 : key:718 -> keys[4]
+pid:4 n:8 Max_n:9 t:5 nextPage:-1 minKey:361 maxKey:809
+position:0		key:361		rid:{0,6}
+position:1		key:422		rid:{1,2}
+position:2		key:520		rid:{0,2}
+position:3		key:689		rid:{1,1}
+position:4		key:718		rid:{1,3}
+position:5		key:722		rid:{0,3}
+position:6		key:778		rid:{0,1}
+position:7		key:809		rid:{0,5}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(1,4)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:3297 into Tree , RecordId={pid:1, sid:4} ******
-insert to non leaf node pid[1] : key[3297]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:464 into Tree , RecordId={pid:1, sid:4} ******
+insert to non leaf node pid:1 : key:464
+pid:1 n:2 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:361
+position:2	pid:4
 
-i:1
+i:2
 
 Read Leaf Node page:
-pid:3 n:7 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:4589
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3992		rid:{0,3}
-position:6		key:4589		rid:{1,1}
+pid:4 n:8 Max_n:9 t:5 nextPage:-1 minKey:361 maxKey:809
+position:0		key:361		rid:{0,6}
+position:1		key:422		rid:{1,2}
+position:2		key:520		rid:{0,2}
+position:3		key:689		rid:{1,1}
+position:4		key:718		rid:{1,3}
+position:5		key:722		rid:{0,3}
+position:6		key:778		rid:{0,1}
+position:7		key:809		rid:{0,5}
 
-insert pid[3] : key[3297] -> keys[5]
-pid:3 n:8 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:4589
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3297		rid:{1,4}
-position:6		key:3992		rid:{0,3}
-position:7		key:4589		rid:{1,1}
+insert pid:4 : key:464 -> keys[2]
+pid:4 n:9 Max_n:9 t:5 nextPage:-1 minKey:361 maxKey:809
+position:0		key:361		rid:{0,6}
+position:1		key:422		rid:{1,2}
+position:2		key:464		rid:{1,4}
+position:3		key:520		rid:{0,2}
+position:4		key:689		rid:{1,1}
+position:5		key:718		rid:{1,3}
+position:6		key:722		rid:{0,3}
+position:7		key:778		rid:{0,1}
+position:8		key:809		rid:{0,5}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(1,5)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:3561 into Tree , RecordId={pid:1, sid:5} ******
-insert to non leaf node pid[1] : key[3561]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:377 into Tree , RecordId={pid:1, sid:5} ******
+insert to non leaf node pid:1 : key:377
+pid:1 n:2 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:361
+position:2	pid:4
 
-i:1
+i:2
 
 Read Leaf Node page:
-pid:3 n:8 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:4589
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3297		rid:{1,4}
-position:6		key:3992		rid:{0,3}
-position:7		key:4589		rid:{1,1}
+pid:4 n:9 Max_n:9 t:5 nextPage:-1 minKey:361 maxKey:809
+position:0		key:361		rid:{0,6}
+position:1		key:422		rid:{1,2}
+position:2		key:464		rid:{1,4}
+position:3		key:520		rid:{0,2}
+position:4		key:689		rid:{1,1}
+position:5		key:718		rid:{1,3}
+position:6		key:722		rid:{0,3}
+position:7		key:778		rid:{0,1}
+position:8		key:809		rid:{0,5}
 
-insert pid[3] : key[3561] -> keys[6]
-pid:3 n:9 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:4589
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3297		rid:{1,4}
-position:6		key:3561		rid:{1,5}
-position:7		key:3992		rid:{0,3}
-position:8		key:4589		rid:{1,1}
+Split Child pid:4  newPid:5
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:809
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:361
+position:2	pid:4
+position:2		key:689
+position:3	pid:5
+
+pid:4 n:4 Max_n:9 t:5 nextPage:5 minKey:361 maxKey:520
+position:0		key:361		rid:{0,6}
+position:1		key:422		rid:{1,2}
+position:2		key:464		rid:{1,4}
+position:3		key:520		rid:{0,2}
+
+pid:5 n:5 Max_n:9 t:5 nextPage:-1 minKey:689 maxKey:809
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:778		rid:{0,1}
+position:4		key:809		rid:{0,5}
+
+insert pid:4 : key:377 -> keys[1]
+pid:4 n:5 Max_n:9 t:5 nextPage:5 minKey:361 maxKey:520
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:422		rid:{1,2}
+position:3		key:464		rid:{1,4}
+position:4		key:520		rid:{0,2}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(1,6)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:3619 into Tree , RecordId={pid:1, sid:6} ******
-insert to non leaf node pid[1] : key[3619]
-pid:1 n:1 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:68 into Tree , RecordId={pid:1, sid:6} ******
+insert to non leaf node pid:1 : key:68
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:361
+position:2	pid:4
+position:2		key:689
+position:3	pid:5
 
 i:1
 
 Read Leaf Node page:
-pid:3 n:9 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:4589
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3297		rid:{1,4}
-position:6		key:3561		rid:{1,5}
-position:7		key:3992		rid:{0,3}
-position:8		key:4589		rid:{1,1}
+pid:3 n:4 Max_n:9 t:5 nextPage:4 minKey:3 maxKey:279
+position:0		key:3		rid:{0,0}
+position:1		key:185		rid:{0,4}
+position:2		key:239		rid:{1,0}
+position:3		key:279		rid:{0,7}
 
-Split Child pid:3  newPid:4
-pid:1 n:2 Max_n:12 t:6 minKey:41 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-
-pid:3 n:4 Max_n:9 t:5 nextPage:4 minKey:2342 maxKey:3084
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-
-pid:4 n:5 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3992		rid:{0,3}
-position:4		key:4589		rid:{1,1}
-
-insert pid[4] : key[3619] -> keys[3]
-pid:4 n:6 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3992		rid:{0,3}
-position:5		key:4589		rid:{1,1}
+insert pid:3 : key:68 -> keys[1]
+pid:3 n:5 Max_n:9 t:5 nextPage:4 minKey:3 maxKey:279
+position:0		key:3		rid:{0,0}
+position:1		key:68		rid:{1,6}
+position:2		key:185		rid:{0,4}
+position:3		key:239		rid:{1,0}
+position:4		key:279		rid:{0,7}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(1,7)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:4289 into Tree , RecordId={pid:1, sid:7} ******
-insert to non leaf node pid[1] : key[4289]
-pid:1 n:2 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:64 into Tree , RecordId={pid:1, sid:7} ******
+insert to non leaf node pid:1 : key:64
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
-position:1		key:3229
+position:1		key:361
 position:2	pid:4
+position:2		key:689
+position:3	pid:5
 
-i:2
+i:1
 
 Read Leaf Node page:
-pid:4 n:6 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3992		rid:{0,3}
-position:5		key:4589		rid:{1,1}
+pid:3 n:5 Max_n:9 t:5 nextPage:4 minKey:3 maxKey:279
+position:0		key:3		rid:{0,0}
+position:1		key:68		rid:{1,6}
+position:2		key:185		rid:{0,4}
+position:3		key:239		rid:{1,0}
+position:4		key:279		rid:{0,7}
 
-insert pid[4] : key[4289] -> keys[5]
-pid:4 n:7 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3992		rid:{0,3}
-position:5		key:4289		rid:{1,7}
-position:6		key:4589		rid:{1,1}
+insert pid:3 : key:64 -> keys[1]
+pid:3 n:6 Max_n:9 t:5 nextPage:4 minKey:3 maxKey:279
+position:0		key:3		rid:{0,0}
+position:1		key:64		rid:{1,7}
+position:2		key:68		rid:{1,6}
+position:3		key:185		rid:{0,4}
+position:4		key:239		rid:{1,0}
+position:5		key:279		rid:{0,7}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(2,0)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:4583 into Tree , RecordId={pid:2, sid:0} ******
-insert to non leaf node pid[1] : key[4583]
-pid:1 n:2 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:268 into Tree , RecordId={pid:2, sid:0} ******
+insert to non leaf node pid:1 : key:268
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
-position:1		key:3229
+position:1		key:361
 position:2	pid:4
+position:2		key:689
+position:3	pid:5
 
-i:2
+i:1
 
 Read Leaf Node page:
-pid:4 n:7 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3992		rid:{0,3}
-position:5		key:4289		rid:{1,7}
-position:6		key:4589		rid:{1,1}
+pid:3 n:6 Max_n:9 t:5 nextPage:4 minKey:3 maxKey:279
+position:0		key:3		rid:{0,0}
+position:1		key:64		rid:{1,7}
+position:2		key:68		rid:{1,6}
+position:3		key:185		rid:{0,4}
+position:4		key:239		rid:{1,0}
+position:5		key:279		rid:{0,7}
 
-insert pid[4] : key[4583] -> keys[6]
-pid:4 n:8 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3992		rid:{0,3}
-position:5		key:4289		rid:{1,7}
-position:6		key:4583		rid:{2,0}
-position:7		key:4589		rid:{1,1}
+insert pid:3 : key:268 -> keys[5]
+pid:3 n:7 Max_n:9 t:5 nextPage:4 minKey:3 maxKey:279
+position:0		key:3		rid:{0,0}
+position:1		key:64		rid:{1,7}
+position:2		key:68		rid:{1,6}
+position:3		key:185		rid:{0,4}
+position:4		key:239		rid:{1,0}
+position:5		key:268		rid:{2,0}
+position:6		key:279		rid:{0,7}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(2,1)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:1208 into Tree , RecordId={pid:2, sid:1} ******
-insert to non leaf node pid[1] : key[1208]
-pid:1 n:2 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:455 into Tree , RecordId={pid:2, sid:1} ******
+insert to non leaf node pid:1 : key:455
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
-position:1		key:3229
+position:1		key:361
 position:2	pid:4
+position:2		key:689
+position:3	pid:5
 
-i:0
+i:2
 
 Read Leaf Node page:
-pid:2 n:5 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:2244
-position:0		key:41		rid:{0,1}
-position:1		key:42		rid:{1,2}
-position:2		key:1390		rid:{1,3}
-position:3		key:1578		rid:{0,7}
-position:4		key:2244		rid:{0,6}
+pid:4 n:5 Max_n:9 t:5 nextPage:5 minKey:361 maxKey:520
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:422		rid:{1,2}
+position:3		key:464		rid:{1,4}
+position:4		key:520		rid:{0,2}
 
-insert pid[2] : key[1208] -> keys[2]
-pid:2 n:6 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:2244
-position:0		key:41		rid:{0,1}
-position:1		key:42		rid:{1,2}
-position:2		key:1208		rid:{2,1}
-position:3		key:1390		rid:{1,3}
-position:4		key:1578		rid:{0,7}
-position:5		key:2244		rid:{0,6}
+insert pid:4 : key:455 -> keys[3]
+pid:4 n:6 Max_n:9 t:5 nextPage:5 minKey:361 maxKey:520
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:422		rid:{1,2}
+position:3		key:455		rid:{2,1}
+position:4		key:464		rid:{1,4}
+position:5		key:520		rid:{0,2}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(2,2)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:49 into Tree , RecordId={pid:2, sid:2} ******
-insert to non leaf node pid[1] : key[49]
-pid:1 n:2 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:47 into Tree , RecordId={pid:2, sid:2} ******
+insert to non leaf node pid:1 : key:47
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
-position:1		key:3229
+position:1		key:361
 position:2	pid:4
+position:2		key:689
+position:3	pid:5
 
-i:0
+i:1
 
 Read Leaf Node page:
-pid:2 n:6 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:2244
-position:0		key:41		rid:{0,1}
-position:1		key:42		rid:{1,2}
-position:2		key:1208		rid:{2,1}
-position:3		key:1390		rid:{1,3}
-position:4		key:1578		rid:{0,7}
-position:5		key:2244		rid:{0,6}
+pid:3 n:7 Max_n:9 t:5 nextPage:4 minKey:3 maxKey:279
+position:0		key:3		rid:{0,0}
+position:1		key:64		rid:{1,7}
+position:2		key:68		rid:{1,6}
+position:3		key:185		rid:{0,4}
+position:4		key:239		rid:{1,0}
+position:5		key:268		rid:{2,0}
+position:6		key:279		rid:{0,7}
 
-insert pid[2] : key[49] -> keys[2]
-pid:2 n:7 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:2244
-position:0		key:41		rid:{0,1}
-position:1		key:42		rid:{1,2}
-position:2		key:49		rid:{2,2}
-position:3		key:1208		rid:{2,1}
-position:4		key:1390		rid:{1,3}
-position:5		key:1578		rid:{0,7}
-position:6		key:2244		rid:{0,6}
+insert pid:3 : key:47 -> keys[1]
+pid:3 n:8 Max_n:9 t:5 nextPage:4 minKey:3 maxKey:279
+position:0		key:3		rid:{0,0}
+position:1		key:47		rid:{2,2}
+position:2		key:64		rid:{1,7}
+position:3		key:68		rid:{1,6}
+position:4		key:185		rid:{0,4}
+position:5		key:239		rid:{1,0}
+position:6		key:268		rid:{2,0}
+position:7		key:279		rid:{0,7}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(2,3)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:3953 into Tree , RecordId={pid:2, sid:3} ******
-insert to non leaf node pid[1] : key[3953]
-pid:1 n:2 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:558 into Tree , RecordId={pid:2, sid:3} ******
+insert to non leaf node pid:1 : key:558
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
-position:1		key:3229
+position:1		key:361
 position:2	pid:4
+position:2		key:689
+position:3	pid:5
 
 i:2
 
 Read Leaf Node page:
-pid:4 n:8 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3992		rid:{0,3}
-position:5		key:4289		rid:{1,7}
-position:6		key:4583		rid:{2,0}
-position:7		key:4589		rid:{1,1}
+pid:4 n:6 Max_n:9 t:5 nextPage:5 minKey:361 maxKey:520
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:422		rid:{1,2}
+position:3		key:455		rid:{2,1}
+position:4		key:464		rid:{1,4}
+position:5		key:520		rid:{0,2}
 
-insert pid[4] : key[3953] -> keys[4]
-pid:4 n:9 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3953		rid:{2,3}
-position:5		key:3992		rid:{0,3}
-position:6		key:4289		rid:{1,7}
-position:7		key:4583		rid:{2,0}
-position:8		key:4589		rid:{1,1}
+insert pid:4 : key:558 -> keys[6]
+pid:4 n:7 Max_n:9 t:5 nextPage:5 minKey:361 maxKey:558
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:422		rid:{1,2}
+position:3		key:455		rid:{2,1}
+position:4		key:464		rid:{1,4}
+position:5		key:520		rid:{0,2}
+position:6		key:558		rid:{2,3}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(2,4)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:3099 into Tree , RecordId={pid:2, sid:4} ******
-insert to non leaf node pid[1] : key[3099]
-pid:1 n:2 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:768 into Tree , RecordId={pid:2, sid:4} ******
+insert to non leaf node pid:1 : key:768
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
-position:1		key:3229
+position:1		key:361
 position:2	pid:4
+position:2		key:689
+position:3	pid:5
 
-i:1
+i:3
 
 Read Leaf Node page:
-pid:3 n:4 Max_n:9 t:5 nextPage:4 minKey:2342 maxKey:3084
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
+pid:5 n:5 Max_n:9 t:5 nextPage:-1 minKey:689 maxKey:809
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:778		rid:{0,1}
+position:4		key:809		rid:{0,5}
 
-insert pid[3] : key[3099] -> keys[4]
-pid:3 n:5 Max_n:9 t:5 nextPage:4 minKey:2342 maxKey:3099
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3099		rid:{2,4}
+insert pid:5 : key:768 -> keys[3]
+pid:5 n:6 Max_n:9 t:5 nextPage:-1 minKey:689 maxKey:809
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:768		rid:{2,4}
+position:4		key:778		rid:{0,1}
+position:5		key:809		rid:{0,5}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(2,5)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:4515 into Tree , RecordId={pid:2, sid:5} ******
-insert to non leaf node pid[1] : key[4515]
-pid:1 n:2 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:771 into Tree , RecordId={pid:2, sid:5} ******
+insert to non leaf node pid:1 : key:771
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
-position:1		key:3229
+position:1		key:361
 position:2	pid:4
-
-i:2
-
-Read Leaf Node page:
-pid:4 n:9 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3953		rid:{2,3}
-position:5		key:3992		rid:{0,3}
-position:6		key:4289		rid:{1,7}
-position:7		key:4583		rid:{2,0}
-position:8		key:4589		rid:{1,1}
-
-Split Child pid:4  newPid:5
-pid:1 n:3 Max_n:12 t:6 minKey:41 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-position:2		key:3953
+position:2		key:689
 position:3	pid:5
 
-pid:4 n:4 Max_n:9 t:5 nextPage:5 minKey:3229 maxKey:3619
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
+i:3
 
-pid:5 n:5 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4589
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4583		rid:{2,0}
-position:4		key:4589		rid:{1,1}
+Read Leaf Node page:
+pid:5 n:6 Max_n:9 t:5 nextPage:-1 minKey:689 maxKey:809
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:768		rid:{2,4}
+position:4		key:778		rid:{0,1}
+position:5		key:809		rid:{0,5}
 
-insert pid[5] : key[4515] -> keys[3]
-pid:5 n:6 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4589
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4515		rid:{2,5}
-position:4		key:4583		rid:{2,0}
-position:5		key:4589		rid:{1,1}
+insert pid:5 : key:771 -> keys[4]
+pid:5 n:7 Max_n:9 t:5 nextPage:-1 minKey:689 maxKey:809
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:768		rid:{2,4}
+position:4		key:771		rid:{2,5}
+position:5		key:778		rid:{0,1}
+position:6		key:809		rid:{0,5}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(2,6)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:4657 into Tree , RecordId={pid:2, sid:6} ******
-insert to non leaf node pid[1] : key[4657]
-pid:1 n:3 Max_n:12 t:6 minKey:41 maxKey:4589
+************* Insert key:724 into Tree , RecordId={pid:2, sid:6} ******
+insert to non leaf node pid:1 : key:724
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
-position:1		key:3229
+position:1		key:361
 position:2	pid:4
-position:2		key:3953
+position:2		key:689
 position:3	pid:5
 
 i:3
 
 Read Leaf Node page:
-pid:5 n:6 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4589
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4515		rid:{2,5}
-position:4		key:4583		rid:{2,0}
-position:5		key:4589		rid:{1,1}
+pid:5 n:7 Max_n:9 t:5 nextPage:-1 minKey:689 maxKey:809
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:768		rid:{2,4}
+position:4		key:771		rid:{2,5}
+position:5		key:778		rid:{0,1}
+position:6		key:809		rid:{0,5}
 
-insert pid[5] : key[4657] -> keys[6]
-pid:5 n:7 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4657
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4515		rid:{2,5}
-position:4		key:4583		rid:{2,0}
-position:5		key:4589		rid:{1,1}
-position:6		key:4657		rid:{2,6}
+insert pid:5 : key:724 -> keys[3]
+pid:5 n:8 Max_n:9 t:5 nextPage:-1 minKey:689 maxKey:809
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:724		rid:{2,6}
+position:4		key:768		rid:{2,4}
+position:5		key:771		rid:{2,5}
+position:6		key:778		rid:{0,1}
+position:7		key:809		rid:{0,5}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(2,7)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:40 into Tree , RecordId={pid:2, sid:7} ******
-insert to non leaf node pid[1] : key[40]
-pid:1 n:3 Max_n:12 t:6 minKey:41 maxKey:4657
+************* Insert key:842 into Tree , RecordId={pid:2, sid:7} ******
+insert to non leaf node pid:1 : key:842
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:809
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
-position:1		key:3229
+position:1		key:361
 position:2	pid:4
-position:2		key:3953
+position:2		key:689
 position:3	pid:5
 
-i:0
+i:3
 
 Read Leaf Node page:
-pid:2 n:7 Max_n:9 t:5 nextPage:3 minKey:41 maxKey:2244
-position:0		key:41		rid:{0,1}
-position:1		key:42		rid:{1,2}
-position:2		key:49		rid:{2,2}
-position:3		key:1208		rid:{2,1}
-position:4		key:1390		rid:{1,3}
-position:5		key:1578		rid:{0,7}
-position:6		key:2244		rid:{0,6}
+pid:5 n:8 Max_n:9 t:5 nextPage:-1 minKey:689 maxKey:809
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:724		rid:{2,6}
+position:4		key:768		rid:{2,4}
+position:5		key:771		rid:{2,5}
+position:6		key:778		rid:{0,1}
+position:7		key:809		rid:{0,5}
 
-insert pid[2] : key[40] -> keys[0]
-pid:2 n:8 Max_n:9 t:5 nextPage:3 minKey:40 maxKey:2244
-position:0		key:40		rid:{2,7}
-position:1		key:41		rid:{0,1}
-position:2		key:42		rid:{1,2}
-position:3		key:49		rid:{2,2}
-position:4		key:1208		rid:{2,1}
-position:5		key:1390		rid:{1,3}
-position:6		key:1578		rid:{0,7}
-position:7		key:2244		rid:{0,6}
+insert pid:5 : key:842 -> keys[8]
+pid:5 n:9 Max_n:9 t:5 nextPage:-1 minKey:689 maxKey:842
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:724		rid:{2,6}
+position:4		key:768		rid:{2,4}
+position:5		key:771		rid:{2,5}
+position:6		key:778		rid:{0,1}
+position:7		key:809		rid:{0,5}
+position:8		key:842		rid:{2,7}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(3,0)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:43 into Tree , RecordId={pid:3, sid:0} ******
-insert to non leaf node pid[1] : key[43]
-pid:1 n:3 Max_n:12 t:6 minKey:40 maxKey:4657
+************* Insert key:87 into Tree , RecordId={pid:3, sid:0} ******
+insert to non leaf node pid:1 : key:87
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:842
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
-position:1		key:3229
+position:1		key:361
 position:2	pid:4
-position:2		key:3953
+position:2		key:689
 position:3	pid:5
 
-i:0
+i:1
 
 Read Leaf Node page:
-pid:2 n:8 Max_n:9 t:5 nextPage:3 minKey:40 maxKey:2244
-position:0		key:40		rid:{2,7}
-position:1		key:41		rid:{0,1}
-position:2		key:42		rid:{1,2}
-position:3		key:49		rid:{2,2}
-position:4		key:1208		rid:{2,1}
-position:5		key:1390		rid:{1,3}
-position:6		key:1578		rid:{0,7}
-position:7		key:2244		rid:{0,6}
+pid:3 n:8 Max_n:9 t:5 nextPage:4 minKey:3 maxKey:279
+position:0		key:3		rid:{0,0}
+position:1		key:47		rid:{2,2}
+position:2		key:64		rid:{1,7}
+position:3		key:68		rid:{1,6}
+position:4		key:185		rid:{0,4}
+position:5		key:239		rid:{1,0}
+position:6		key:268		rid:{2,0}
+position:7		key:279		rid:{0,7}
 
-insert pid[2] : key[43] -> keys[3]
-pid:2 n:9 Max_n:9 t:5 nextPage:3 minKey:40 maxKey:2244
-position:0		key:40		rid:{2,7}
-position:1		key:41		rid:{0,1}
-position:2		key:42		rid:{1,2}
-position:3		key:43		rid:{3,0}
-position:4		key:49		rid:{2,2}
-position:5		key:1208		rid:{2,1}
-position:6		key:1390		rid:{1,3}
-position:7		key:1578		rid:{0,7}
-position:8		key:2244		rid:{0,6}
+insert pid:3 : key:87 -> keys[4]
+pid:3 n:9 Max_n:9 t:5 nextPage:4 minKey:3 maxKey:279
+position:0		key:3		rid:{0,0}
+position:1		key:47		rid:{2,2}
+position:2		key:64		rid:{1,7}
+position:3		key:68		rid:{1,6}
+position:4		key:87		rid:{3,0}
+position:5		key:185		rid:{0,4}
+position:6		key:239		rid:{1,0}
+position:7		key:268		rid:{2,0}
+position:8		key:279		rid:{0,7}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(3,1)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:44 into Tree , RecordId={pid:3, sid:1} ******
-insert to non leaf node pid[1] : key[44]
-pid:1 n:3 Max_n:12 t:6 minKey:40 maxKey:4657
+************* Insert key:976 into Tree , RecordId={pid:3, sid:1} ******
+insert to non leaf node pid:1 : key:976
+pid:1 n:3 Max_n:12 t:6 minKey:3 maxKey:842
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
-position:1		key:3229
+position:1		key:361
 position:2	pid:4
-position:2		key:3953
+position:2		key:689
 position:3	pid:5
 
-i:0
+i:3
 
 Read Leaf Node page:
-pid:2 n:9 Max_n:9 t:5 nextPage:3 minKey:40 maxKey:2244
-position:0		key:40		rid:{2,7}
-position:1		key:41		rid:{0,1}
-position:2		key:42		rid:{1,2}
-position:3		key:43		rid:{3,0}
-position:4		key:49		rid:{2,2}
-position:5		key:1208		rid:{2,1}
-position:6		key:1390		rid:{1,3}
-position:7		key:1578		rid:{0,7}
-position:8		key:2244		rid:{0,6}
+pid:5 n:9 Max_n:9 t:5 nextPage:-1 minKey:689 maxKey:842
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:724		rid:{2,6}
+position:4		key:768		rid:{2,4}
+position:5		key:771		rid:{2,5}
+position:6		key:778		rid:{0,1}
+position:7		key:809		rid:{0,5}
+position:8		key:842		rid:{2,7}
 
-Split Child pid:2  newPid:6
-pid:1 n:4 Max_n:12 t:6 minKey:40 maxKey:4657
+Split Child pid:5  newPid:6
+pid:1 n:4 Max_n:12 t:6 minKey:3 maxKey:976
 position:0	pid:2
-position:0		key:49
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
+position:0		key:3
+position:1	pid:3
+position:1		key:361
+position:2	pid:4
+position:2		key:689
+position:3	pid:5
+position:3		key:768
+position:4	pid:6
 
-pid:2 n:4 Max_n:9 t:5 nextPage:6 minKey:40 maxKey:43
-position:0		key:40		rid:{2,7}
-position:1		key:41		rid:{0,1}
-position:2		key:42		rid:{1,2}
-position:3		key:43		rid:{3,0}
+pid:5 n:4 Max_n:9 t:5 nextPage:6 minKey:689 maxKey:724
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:724		rid:{2,6}
 
-pid:6 n:5 Max_n:9 t:5 nextPage:3 minKey:49 maxKey:2244
-position:0		key:49		rid:{2,2}
-position:1		key:1208		rid:{2,1}
-position:2		key:1390		rid:{1,3}
-position:3		key:1578		rid:{0,7}
-position:4		key:2244		rid:{0,6}
+pid:6 n:5 Max_n:9 t:5 nextPage:-1 minKey:768 maxKey:842
+position:0		key:768		rid:{2,4}
+position:1		key:771		rid:{2,5}
+position:2		key:778		rid:{0,1}
+position:3		key:809		rid:{0,5}
+position:4		key:842		rid:{2,7}
 
-insert pid[2] : key[44] -> keys[4]
-pid:2 n:5 Max_n:9 t:5 nextPage:6 minKey:40 maxKey:44
-position:0		key:40		rid:{2,7}
-position:1		key:41		rid:{0,1}
-position:2		key:42		rid:{1,2}
-position:3		key:43		rid:{3,0}
-position:4		key:44		rid:{3,1}
+insert pid:6 : key:976 -> keys[5]
+pid:6 n:6 Max_n:9 t:5 nextPage:-1 minKey:768 maxKey:976
+position:0		key:768		rid:{2,4}
+position:1		key:771		rid:{2,5}
+position:2		key:778		rid:{0,1}
+position:3		key:809		rid:{0,5}
+position:4		key:842		rid:{2,7}
+position:5		key:976		rid:{3,1}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(3,2)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:841 into Tree , RecordId={pid:3, sid:2} ******
-insert to non leaf node pid[1] : key[841]
-pid:1 n:4 Max_n:12 t:6 minKey:40 maxKey:4657
+************* Insert key:808 into Tree , RecordId={pid:3, sid:2} ******
+insert to non leaf node pid:1 : key:808
+pid:1 n:4 Max_n:12 t:6 minKey:3 maxKey:976
 position:0	pid:2
-position:0		key:49
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
+position:0		key:3
+position:1	pid:3
+position:1		key:361
+position:2	pid:4
+position:2		key:689
+position:3	pid:5
+position:3		key:768
+position:4	pid:6
 
-i:1
+i:4
 
 Read Leaf Node page:
-pid:6 n:5 Max_n:9 t:5 nextPage:3 minKey:49 maxKey:2244
-position:0		key:49		rid:{2,2}
-position:1		key:1208		rid:{2,1}
-position:2		key:1390		rid:{1,3}
-position:3		key:1578		rid:{0,7}
-position:4		key:2244		rid:{0,6}
+pid:6 n:6 Max_n:9 t:5 nextPage:-1 minKey:768 maxKey:976
+position:0		key:768		rid:{2,4}
+position:1		key:771		rid:{2,5}
+position:2		key:778		rid:{0,1}
+position:3		key:809		rid:{0,5}
+position:4		key:842		rid:{2,7}
+position:5		key:976		rid:{3,1}
 
-insert pid[6] : key[841] -> keys[1]
-pid:6 n:6 Max_n:9 t:5 nextPage:3 minKey:49 maxKey:2244
-position:0		key:49		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:1208		rid:{2,1}
-position:3		key:1390		rid:{1,3}
-position:4		key:1578		rid:{0,7}
-position:5		key:2244		rid:{0,6}
+insert pid:6 : key:808 -> keys[3]
+pid:6 n:7 Max_n:9 t:5 nextPage:-1 minKey:768 maxKey:976
+position:0		key:768		rid:{2,4}
+position:1		key:771		rid:{2,5}
+position:2		key:778		rid:{0,1}
+position:3		key:808		rid:{3,2}
+position:4		key:809		rid:{0,5}
+position:5		key:842		rid:{2,7}
+position:6		key:976		rid:{3,1}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(3,3)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:897 into Tree , RecordId={pid:3, sid:3} ******
-insert to non leaf node pid[1] : key[897]
-pid:1 n:4 Max_n:12 t:6 minKey:40 maxKey:4657
+************* Insert key:641 into Tree , RecordId={pid:3, sid:3} ******
+insert to non leaf node pid:1 : key:641
+pid:1 n:4 Max_n:12 t:6 minKey:3 maxKey:976
 position:0	pid:2
-position:0		key:49
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
+position:0		key:3
+position:1	pid:3
+position:1		key:361
+position:2	pid:4
+position:2		key:689
+position:3	pid:5
+position:3		key:768
+position:4	pid:6
 
-i:1
+i:2
 
 Read Leaf Node page:
-pid:6 n:6 Max_n:9 t:5 nextPage:3 minKey:49 maxKey:2244
-position:0		key:49		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:1208		rid:{2,1}
-position:3		key:1390		rid:{1,3}
-position:4		key:1578		rid:{0,7}
-position:5		key:2244		rid:{0,6}
+pid:4 n:7 Max_n:9 t:5 nextPage:5 minKey:361 maxKey:558
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:422		rid:{1,2}
+position:3		key:455		rid:{2,1}
+position:4		key:464		rid:{1,4}
+position:5		key:520		rid:{0,2}
+position:6		key:558		rid:{2,3}
 
-insert pid[6] : key[897] -> keys[2]
-pid:6 n:7 Max_n:9 t:5 nextPage:3 minKey:49 maxKey:2244
-position:0		key:49		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:897		rid:{3,3}
-position:3		key:1208		rid:{2,1}
-position:4		key:1390		rid:{1,3}
-position:5		key:1578		rid:{0,7}
-position:6		key:2244		rid:{0,6}
+insert pid:4 : key:641 -> keys[7]
+pid:4 n:8 Max_n:9 t:5 nextPage:5 minKey:361 maxKey:641
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:422		rid:{1,2}
+position:3		key:455		rid:{2,1}
+position:4		key:464		rid:{1,4}
+position:5		key:520		rid:{0,2}
+position:6		key:558		rid:{2,3}
+position:7		key:641		rid:{3,3}
 
 
 **************** Insert Key End *************************
 
 Write to slot: (pid,sid)=(3,4)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:1088 into Tree , RecordId={pid:3, sid:4} ******
-insert to non leaf node pid[1] : key[1088]
-pid:1 n:4 Max_n:12 t:6 minKey:40 maxKey:4657
+************* Insert key:188 into Tree , RecordId={pid:3, sid:4} ******
+insert to non leaf node pid:1 : key:188
+pid:1 n:4 Max_n:12 t:6 minKey:3 maxKey:976
 position:0	pid:2
-position:0		key:49
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
+position:0		key:3
+position:1	pid:3
+position:1		key:361
+position:2	pid:4
+position:2		key:689
+position:3	pid:5
+position:3		key:768
+position:4	pid:6
 
 i:1
 
 Read Leaf Node page:
-pid:6 n:7 Max_n:9 t:5 nextPage:3 minKey:49 maxKey:2244
-position:0		key:49		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:897		rid:{3,3}
-position:3		key:1208		rid:{2,1}
-position:4		key:1390		rid:{1,3}
-position:5		key:1578		rid:{0,7}
-position:6		key:2244		rid:{0,6}
+pid:3 n:9 Max_n:9 t:5 nextPage:4 minKey:3 maxKey:279
+position:0		key:3		rid:{0,0}
+position:1		key:47		rid:{2,2}
+position:2		key:64		rid:{1,7}
+position:3		key:68		rid:{1,6}
+position:4		key:87		rid:{3,0}
+position:5		key:185		rid:{0,4}
+position:6		key:239		rid:{1,0}
+position:7		key:268		rid:{2,0}
+position:8		key:279		rid:{0,7}
 
-insert pid[6] : key[1088] -> keys[3]
-pid:6 n:8 Max_n:9 t:5 nextPage:3 minKey:49 maxKey:2244
-position:0		key:49		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:897		rid:{3,3}
-position:3		key:1088		rid:{3,4}
-position:4		key:1208		rid:{2,1}
-position:5		key:1390		rid:{1,3}
-position:6		key:1578		rid:{0,7}
-position:7		key:2244		rid:{0,6}
+Split Child pid:3  newPid:7
+pid:1 n:5 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:361
+position:3	pid:4
+position:3		key:689
+position:4	pid:5
+position:4		key:768
+position:5	pid:6
+
+pid:3 n:4 Max_n:9 t:5 nextPage:7 minKey:3 maxKey:68
+position:0		key:3		rid:{0,0}
+position:1		key:47		rid:{2,2}
+position:2		key:64		rid:{1,7}
+position:3		key:68		rid:{1,6}
+
+pid:7 n:5 Max_n:9 t:5 nextPage:4 minKey:87 maxKey:279
+position:0		key:87		rid:{3,0}
+position:1		key:185		rid:{0,4}
+position:2		key:239		rid:{1,0}
+position:3		key:268		rid:{2,0}
+position:4		key:279		rid:{0,7}
+
+insert pid:7 : key:188 -> keys[2]
+pid:7 n:6 Max_n:9 t:5 nextPage:4 minKey:87 maxKey:279
+position:0		key:87		rid:{3,0}
+position:1		key:185		rid:{0,4}
+position:2		key:188		rid:{3,4}
+position:3		key:239		rid:{1,0}
+position:4		key:268		rid:{2,0}
+position:5		key:279		rid:{0,7}
 
 
 **************** Insert Key End *************************
 
+Write to slot: (pid,sid)=(3,5)  RecordFile::RECORDS_PER_PAGE=8
 
-
-****************** PRINT TREE:  **********************
-rootPid:1 pageNum:7 treeHeight:1 minKey:40 maxKey:4657
-
-pid:1 n:4 Max_n:12 t:6 minKey:40 maxKey:4657
+************* Insert key:454 into Tree , RecordId={pid:3, sid:5} ******
+insert to non leaf node pid:1 : key:454
+pid:1 n:5 Max_n:12 t:6 minKey:3 maxKey:976
 position:0	pid:2
-position:0		key:49
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
-
-pid:2 n:5 Max_n:9 t:5 nextPage:6 minKey:40 maxKey:44
-position:0		key:40		rid:{2,7}
-position:1		key:41		rid:{0,1}
-position:2		key:42		rid:{1,2}
-position:3		key:43		rid:{3,0}
-position:4		key:44		rid:{3,1}
-
-pid:3 n:5 Max_n:9 t:5 nextPage:4 minKey:2342 maxKey:3099
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3099		rid:{2,4}
-
-pid:4 n:4 Max_n:9 t:5 nextPage:5 minKey:3229 maxKey:3619
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-
-pid:5 n:7 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4657
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4515		rid:{2,5}
-position:4		key:4583		rid:{2,0}
-position:5		key:4589		rid:{1,1}
-position:6		key:4657		rid:{2,6}
-
-pid:6 n:8 Max_n:9 t:5 nextPage:3 minKey:49 maxKey:2244
-position:0		key:49		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:897		rid:{3,3}
-position:3		key:1088		rid:{3,4}
-position:4		key:1208		rid:{2,1}
-position:5		key:1390		rid:{1,3}
-position:6		key:1578		rid:{0,7}
-position:7		key:2244		rid:{0,6}
-
-
-****************** BFS TREE**********************
------------------>Non Leaf Node <----------------
-pid:1 n:4 Max_n:12 t:6 minKey:40 maxKey:4657
-position:0	pid:2
-position:0		key:49
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
-
------------------>Leaf Node <----------------
-pid:2 n:5 Max_n:9 t:5 nextPage:6 minKey:40 maxKey:44
-position:0		key:40		rid:{2,7}
-position:1		key:41		rid:{0,1}
-position:2		key:42		rid:{1,2}
-position:3		key:43		rid:{3,0}
-position:4		key:44		rid:{3,1}
-
------------------>Leaf Node <----------------
-pid:6 n:8 Max_n:9 t:5 nextPage:3 minKey:49 maxKey:2244
-position:0		key:49		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:897		rid:{3,3}
-position:3		key:1088		rid:{3,4}
-position:4		key:1208		rid:{2,1}
-position:5		key:1390		rid:{1,3}
-position:6		key:1578		rid:{0,7}
-position:7		key:2244		rid:{0,6}
-
------------------>Leaf Node <----------------
-pid:3 n:5 Max_n:9 t:5 nextPage:4 minKey:2342 maxKey:3099
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3099		rid:{2,4}
-
------------------>Leaf Node <----------------
-pid:4 n:4 Max_n:9 t:5 nextPage:5 minKey:3229 maxKey:3619
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-
------------------>Leaf Node <----------------
-pid:5 n:7 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4657
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4515		rid:{2,5}
-position:4		key:4583		rid:{2,0}
-position:5		key:4589		rid:{1,1}
-position:6		key:4657		rid:{2,6}
-
-
-****************** PRINT TREE END**********************
-Bruinbase> 
-WITHOUT INDEX
-2342 'Last Ride'
-41 'Baby Take'
-2634 'Matter of'
-3992 'Strangers'
-2965 'Notre Dam'
-3084 'Outside t'
-2244 'King Creo'
-1578 'G.I. Blue'
-3229 'Plein sol'
-4589 'Wild Ride'
-42 'Born Free'
-1390 'Fantastic'
-3297 'Professio'
-3561 'Sand Pebb'
-3619 'Seconds'
-4289 'Trouble w'
-4583 'Wild Ange'
-1208 'Easy Come'
-49 'Brotherho'
-3953 'Stay Away'
-3099 'Paint You'
-4515 'Wedding P'
-4657 'Wrecking '
-40 'A.K.A. Ca'
-43 'Angel Lev'
-44 'Angel Unc'
-841 'Count Yor'
-897 'Cry of th'
-1088 'Dirty Din'
-Bruinbase> LOAD test3 FROM test3.del WITH INDEX
-Write to slot: (pid,sid)=(0,0)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:2342 into Tree , RecordId={pid:0, sid:0} ******
-initializeRoot keys[0x11]:0x926 pids[0x41]
-WARNING:pid[-1] != p[1]
-WARNING:pid[-1] != p[2]
-WARNING:pid[-1] != p[3]
-insert pid[3] : key[2342] -> keys[0]
-pid:3 n:1 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:2342
-position:0		key:2342		rid:{0,0}
-
-Write to slot: (pid,sid)=(0,1)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:272 into Tree , RecordId={pid:0, sid:1} ******
-insert to non leaf node pid[1] : key[272]
-pid:1 n:1 Max_n:12 t:6 minKey:2342 maxKey:2342
-position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:361
+position:3	pid:4
+position:3		key:689
+position:4	pid:5
+position:4		key:768
+position:5	pid:6
+
+i:3
+
+Read Leaf Node page:
+pid:4 n:8 Max_n:9 t:5 nextPage:5 minKey:361 maxKey:641
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:422		rid:{1,2}
+position:3		key:455		rid:{2,1}
+position:4		key:464		rid:{1,4}
+position:5		key:520		rid:{0,2}
+position:6		key:558		rid:{2,3}
+position:7		key:641		rid:{3,3}
+
+insert pid:4 : key:454 -> keys[3]
+pid:4 n:9 Max_n:9 t:5 nextPage:5 minKey:361 maxKey:641
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:422		rid:{1,2}
+position:3		key:454		rid:{3,5}
+position:4		key:455		rid:{2,1}
+position:5		key:464		rid:{1,4}
+position:6		key:520		rid:{0,2}
+position:7		key:558		rid:{2,3}
+position:8		key:641		rid:{3,3}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(3,6)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:90 into Tree , RecordId={pid:3, sid:6} ******
+insert to non leaf node pid:1 : key:90
+pid:1 n:5 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:361
+position:3	pid:4
+position:3		key:689
+position:4	pid:5
+position:4		key:768
+position:5	pid:6
+
+i:2
+
+Read Leaf Node page:
+pid:7 n:6 Max_n:9 t:5 nextPage:4 minKey:87 maxKey:279
+position:0		key:87		rid:{3,0}
+position:1		key:185		rid:{0,4}
+position:2		key:188		rid:{3,4}
+position:3		key:239		rid:{1,0}
+position:4		key:268		rid:{2,0}
+position:5		key:279		rid:{0,7}
+
+insert pid:7 : key:90 -> keys[1]
+pid:7 n:7 Max_n:9 t:5 nextPage:4 minKey:87 maxKey:279
+position:0		key:87		rid:{3,0}
+position:1		key:90		rid:{3,6}
+position:2		key:185		rid:{0,4}
+position:3		key:188		rid:{3,4}
+position:4		key:239		rid:{1,0}
+position:5		key:268		rid:{2,0}
+position:6		key:279		rid:{0,7}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(3,7)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:628 into Tree , RecordId={pid:3, sid:7} ******
+insert to non leaf node pid:1 : key:628
+pid:1 n:5 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:361
+position:3	pid:4
+position:3		key:689
+position:4	pid:5
+position:4		key:768
+position:5	pid:6
+
+i:3
+
+Read Leaf Node page:
+pid:4 n:9 Max_n:9 t:5 nextPage:5 minKey:361 maxKey:641
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:422		rid:{1,2}
+position:3		key:454		rid:{3,5}
+position:4		key:455		rid:{2,1}
+position:5		key:464		rid:{1,4}
+position:6		key:520		rid:{0,2}
+position:7		key:558		rid:{2,3}
+position:8		key:641		rid:{3,3}
+
+Split Child pid:4  newPid:8
+pid:1 n:6 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:361
+position:3	pid:4
+position:3		key:455
+position:4	pid:8
+position:4		key:689
+position:5	pid:5
+position:5		key:768
+position:6	pid:6
+
+pid:4 n:4 Max_n:9 t:5 nextPage:8 minKey:361 maxKey:454
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:422		rid:{1,2}
+position:3		key:454		rid:{3,5}
+
+pid:8 n:5 Max_n:9 t:5 nextPage:5 minKey:455 maxKey:641
+position:0		key:455		rid:{2,1}
+position:1		key:464		rid:{1,4}
+position:2		key:520		rid:{0,2}
+position:3		key:558		rid:{2,3}
+position:4		key:641		rid:{3,3}
+
+insert pid:8 : key:628 -> keys[4]
+pid:8 n:6 Max_n:9 t:5 nextPage:5 minKey:455 maxKey:641
+position:0		key:455		rid:{2,1}
+position:1		key:464		rid:{1,4}
+position:2		key:520		rid:{0,2}
+position:3		key:558		rid:{2,3}
+position:4		key:628		rid:{3,7}
+position:5		key:641		rid:{3,3}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(4,0)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:923 into Tree , RecordId={pid:4, sid:0} ******
+insert to non leaf node pid:1 : key:923
+pid:1 n:6 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:361
+position:3	pid:4
+position:3		key:455
+position:4	pid:8
+position:4		key:689
+position:5	pid:5
+position:5		key:768
+position:6	pid:6
+
+i:6
+
+Read Leaf Node page:
+pid:6 n:7 Max_n:9 t:5 nextPage:-1 minKey:768 maxKey:976
+position:0		key:768		rid:{2,4}
+position:1		key:771		rid:{2,5}
+position:2		key:778		rid:{0,1}
+position:3		key:808		rid:{3,2}
+position:4		key:809		rid:{0,5}
+position:5		key:842		rid:{2,7}
+position:6		key:976		rid:{3,1}
+
+insert pid:6 : key:923 -> keys[6]
+pid:6 n:8 Max_n:9 t:5 nextPage:-1 minKey:768 maxKey:976
+position:0		key:768		rid:{2,4}
+position:1		key:771		rid:{2,5}
+position:2		key:778		rid:{0,1}
+position:3		key:808		rid:{3,2}
+position:4		key:809		rid:{0,5}
+position:5		key:842		rid:{2,7}
+position:6		key:923		rid:{4,0}
+position:7		key:976		rid:{3,1}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(4,1)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:357 into Tree , RecordId={pid:4, sid:1} ******
+insert to non leaf node pid:1 : key:357
+pid:1 n:6 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:361
+position:3	pid:4
+position:3		key:455
+position:4	pid:8
+position:4		key:689
+position:5	pid:5
+position:5		key:768
+position:6	pid:6
+
+i:2
+
+Read Leaf Node page:
+pid:7 n:7 Max_n:9 t:5 nextPage:4 minKey:87 maxKey:279
+position:0		key:87		rid:{3,0}
+position:1		key:90		rid:{3,6}
+position:2		key:185		rid:{0,4}
+position:3		key:188		rid:{3,4}
+position:4		key:239		rid:{1,0}
+position:5		key:268		rid:{2,0}
+position:6		key:279		rid:{0,7}
+
+insert pid:7 : key:357 -> keys[7]
+pid:7 n:8 Max_n:9 t:5 nextPage:4 minKey:87 maxKey:357
+position:0		key:87		rid:{3,0}
+position:1		key:90		rid:{3,6}
+position:2		key:185		rid:{0,4}
+position:3		key:188		rid:{3,4}
+position:4		key:239		rid:{1,0}
+position:5		key:268		rid:{2,0}
+position:6		key:279		rid:{0,7}
+position:7		key:357		rid:{4,1}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(4,2)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:389 into Tree , RecordId={pid:4, sid:2} ******
+insert to non leaf node pid:1 : key:389
+pid:1 n:6 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:361
+position:3	pid:4
+position:3		key:455
+position:4	pid:8
+position:4		key:689
+position:5	pid:5
+position:5		key:768
+position:6	pid:6
+
+i:3
+
+Read Leaf Node page:
+pid:4 n:4 Max_n:9 t:5 nextPage:8 minKey:361 maxKey:454
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:422		rid:{1,2}
+position:3		key:454		rid:{3,5}
+
+insert pid:4 : key:389 -> keys[2]
+pid:4 n:5 Max_n:9 t:5 nextPage:8 minKey:361 maxKey:454
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:389		rid:{4,2}
+position:3		key:422		rid:{1,2}
+position:4		key:454		rid:{3,5}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(4,3)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:283 into Tree , RecordId={pid:4, sid:3} ******
+insert to non leaf node pid:1 : key:283
+pid:1 n:6 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:361
+position:3	pid:4
+position:3		key:455
+position:4	pid:8
+position:4		key:689
+position:5	pid:5
+position:5		key:768
+position:6	pid:6
+
+i:2
+
+Read Leaf Node page:
+pid:7 n:8 Max_n:9 t:5 nextPage:4 minKey:87 maxKey:357
+position:0		key:87		rid:{3,0}
+position:1		key:90		rid:{3,6}
+position:2		key:185		rid:{0,4}
+position:3		key:188		rid:{3,4}
+position:4		key:239		rid:{1,0}
+position:5		key:268		rid:{2,0}
+position:6		key:279		rid:{0,7}
+position:7		key:357		rid:{4,1}
+
+insert pid:7 : key:283 -> keys[7]
+pid:7 n:9 Max_n:9 t:5 nextPage:4 minKey:87 maxKey:357
+position:0		key:87		rid:{3,0}
+position:1		key:90		rid:{3,6}
+position:2		key:185		rid:{0,4}
+position:3		key:188		rid:{3,4}
+position:4		key:239		rid:{1,0}
+position:5		key:268		rid:{2,0}
+position:6		key:279		rid:{0,7}
+position:7		key:283		rid:{4,3}
+position:8		key:357		rid:{4,1}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(4,4)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:546 into Tree , RecordId={pid:4, sid:4} ******
+insert to non leaf node pid:1 : key:546
+pid:1 n:6 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:361
+position:3	pid:4
+position:3		key:455
+position:4	pid:8
+position:4		key:689
+position:5	pid:5
+position:5		key:768
+position:6	pid:6
+
+i:4
+
+Read Leaf Node page:
+pid:8 n:6 Max_n:9 t:5 nextPage:5 minKey:455 maxKey:641
+position:0		key:455		rid:{2,1}
+position:1		key:464		rid:{1,4}
+position:2		key:520		rid:{0,2}
+position:3		key:558		rid:{2,3}
+position:4		key:628		rid:{3,7}
+position:5		key:641		rid:{3,3}
+
+insert pid:8 : key:546 -> keys[3]
+pid:8 n:7 Max_n:9 t:5 nextPage:5 minKey:455 maxKey:641
+position:0		key:455		rid:{2,1}
+position:1		key:464		rid:{1,4}
+position:2		key:520		rid:{0,2}
+position:3		key:546		rid:{4,4}
+position:4		key:558		rid:{2,3}
+position:5		key:628		rid:{3,7}
+position:6		key:641		rid:{3,3}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(4,5)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:18 into Tree , RecordId={pid:4, sid:5} ******
+insert to non leaf node pid:1 : key:18
+pid:1 n:6 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:361
+position:3	pid:4
+position:3		key:455
+position:4	pid:8
+position:4		key:689
+position:5	pid:5
+position:5		key:768
+position:6	pid:6
+
+i:1
+
+Read Leaf Node page:
+pid:3 n:4 Max_n:9 t:5 nextPage:7 minKey:3 maxKey:68
+position:0		key:3		rid:{0,0}
+position:1		key:47		rid:{2,2}
+position:2		key:64		rid:{1,7}
+position:3		key:68		rid:{1,6}
+
+insert pid:3 : key:18 -> keys[1]
+pid:3 n:5 Max_n:9 t:5 nextPage:7 minKey:3 maxKey:68
+position:0		key:3		rid:{0,0}
+position:1		key:18		rid:{4,5}
+position:2		key:47		rid:{2,2}
+position:3		key:64		rid:{1,7}
+position:4		key:68		rid:{1,6}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(4,6)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:335 into Tree , RecordId={pid:4, sid:6} ******
+insert to non leaf node pid:1 : key:335
+pid:1 n:6 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:361
+position:3	pid:4
+position:3		key:455
+position:4	pid:8
+position:4		key:689
+position:5	pid:5
+position:5		key:768
+position:6	pid:6
+
+i:2
+
+Read Leaf Node page:
+pid:7 n:9 Max_n:9 t:5 nextPage:4 minKey:87 maxKey:357
+position:0		key:87		rid:{3,0}
+position:1		key:90		rid:{3,6}
+position:2		key:185		rid:{0,4}
+position:3		key:188		rid:{3,4}
+position:4		key:239		rid:{1,0}
+position:5		key:268		rid:{2,0}
+position:6		key:279		rid:{0,7}
+position:7		key:283		rid:{4,3}
+position:8		key:357		rid:{4,1}
+
+Split Child pid:7  newPid:9
+pid:1 n:7 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+
+pid:7 n:4 Max_n:9 t:5 nextPage:9 minKey:87 maxKey:188
+position:0		key:87		rid:{3,0}
+position:1		key:90		rid:{3,6}
+position:2		key:185		rid:{0,4}
+position:3		key:188		rid:{3,4}
+
+pid:9 n:5 Max_n:9 t:5 nextPage:4 minKey:239 maxKey:357
+position:0		key:239		rid:{1,0}
+position:1		key:268		rid:{2,0}
+position:2		key:279		rid:{0,7}
+position:3		key:283		rid:{4,3}
+position:4		key:357		rid:{4,1}
+
+insert pid:9 : key:335 -> keys[4]
+pid:9 n:6 Max_n:9 t:5 nextPage:4 minKey:239 maxKey:357
+position:0		key:239		rid:{1,0}
+position:1		key:268		rid:{2,0}
+position:2		key:279		rid:{0,7}
+position:3		key:283		rid:{4,3}
+position:4		key:335		rid:{4,6}
+position:5		key:357		rid:{4,1}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(4,7)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:33 into Tree , RecordId={pid:4, sid:7} ******
+insert to non leaf node pid:1 : key:33
+pid:1 n:7 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+
+i:1
+
+Read Leaf Node page:
+pid:3 n:5 Max_n:9 t:5 nextPage:7 minKey:3 maxKey:68
+position:0		key:3		rid:{0,0}
+position:1		key:18		rid:{4,5}
+position:2		key:47		rid:{2,2}
+position:3		key:64		rid:{1,7}
+position:4		key:68		rid:{1,6}
+
+insert pid:3 : key:33 -> keys[2]
+pid:3 n:6 Max_n:9 t:5 nextPage:7 minKey:3 maxKey:68
+position:0		key:3		rid:{0,0}
+position:1		key:18		rid:{4,5}
+position:2		key:33		rid:{4,7}
+position:3		key:47		rid:{2,2}
+position:4		key:64		rid:{1,7}
+position:5		key:68		rid:{1,6}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(5,0)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:58 into Tree , RecordId={pid:5, sid:0} ******
+insert to non leaf node pid:1 : key:58
+pid:1 n:7 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+
+i:1
+
+Read Leaf Node page:
+pid:3 n:6 Max_n:9 t:5 nextPage:7 minKey:3 maxKey:68
+position:0		key:3		rid:{0,0}
+position:1		key:18		rid:{4,5}
+position:2		key:33		rid:{4,7}
+position:3		key:47		rid:{2,2}
+position:4		key:64		rid:{1,7}
+position:5		key:68		rid:{1,6}
+
+insert pid:3 : key:58 -> keys[4]
+pid:3 n:7 Max_n:9 t:5 nextPage:7 minKey:3 maxKey:68
+position:0		key:3		rid:{0,0}
+position:1		key:18		rid:{4,5}
+position:2		key:33		rid:{4,7}
+position:3		key:47		rid:{2,2}
+position:4		key:58		rid:{5,0}
+position:5		key:64		rid:{1,7}
+position:6		key:68		rid:{1,6}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(5,1)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:585 into Tree , RecordId={pid:5, sid:1} ******
+insert to non leaf node pid:1 : key:585
+pid:1 n:7 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+
+i:5
+
+Read Leaf Node page:
+pid:8 n:7 Max_n:9 t:5 nextPage:5 minKey:455 maxKey:641
+position:0		key:455		rid:{2,1}
+position:1		key:464		rid:{1,4}
+position:2		key:520		rid:{0,2}
+position:3		key:546		rid:{4,4}
+position:4		key:558		rid:{2,3}
+position:5		key:628		rid:{3,7}
+position:6		key:641		rid:{3,3}
+
+insert pid:8 : key:585 -> keys[5]
+pid:8 n:8 Max_n:9 t:5 nextPage:5 minKey:455 maxKey:641
+position:0		key:455		rid:{2,1}
+position:1		key:464		rid:{1,4}
+position:2		key:520		rid:{0,2}
+position:3		key:546		rid:{4,4}
+position:4		key:558		rid:{2,3}
+position:5		key:585		rid:{5,1}
+position:6		key:628		rid:{3,7}
+position:7		key:641		rid:{3,3}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(5,2)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:342 into Tree , RecordId={pid:5, sid:2} ******
+insert to non leaf node pid:1 : key:342
+pid:1 n:7 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+
+i:3
+
+Read Leaf Node page:
+pid:9 n:6 Max_n:9 t:5 nextPage:4 minKey:239 maxKey:357
+position:0		key:239		rid:{1,0}
+position:1		key:268		rid:{2,0}
+position:2		key:279		rid:{0,7}
+position:3		key:283		rid:{4,3}
+position:4		key:335		rid:{4,6}
+position:5		key:357		rid:{4,1}
+
+insert pid:9 : key:342 -> keys[5]
+pid:9 n:7 Max_n:9 t:5 nextPage:4 minKey:239 maxKey:357
+position:0		key:239		rid:{1,0}
+position:1		key:268		rid:{2,0}
+position:2		key:279		rid:{0,7}
+position:3		key:283		rid:{4,3}
+position:4		key:335		rid:{4,6}
+position:5		key:342		rid:{5,2}
+position:6		key:357		rid:{4,1}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(5,3)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:993 into Tree , RecordId={pid:5, sid:3} ******
+insert to non leaf node pid:1 : key:993
+pid:1 n:7 Max_n:12 t:6 minKey:3 maxKey:976
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+
+i:7
+
+Read Leaf Node page:
+pid:6 n:8 Max_n:9 t:5 nextPage:-1 minKey:768 maxKey:976
+position:0		key:768		rid:{2,4}
+position:1		key:771		rid:{2,5}
+position:2		key:778		rid:{0,1}
+position:3		key:808		rid:{3,2}
+position:4		key:809		rid:{0,5}
+position:5		key:842		rid:{2,7}
+position:6		key:923		rid:{4,0}
+position:7		key:976		rid:{3,1}
+
+insert pid:6 : key:993 -> keys[8]
+pid:6 n:9 Max_n:9 t:5 nextPage:-1 minKey:768 maxKey:993
+position:0		key:768		rid:{2,4}
+position:1		key:771		rid:{2,5}
+position:2		key:778		rid:{0,1}
+position:3		key:808		rid:{3,2}
+position:4		key:809		rid:{0,5}
+position:5		key:842		rid:{2,7}
+position:6		key:923		rid:{4,0}
+position:7		key:976		rid:{3,1}
+position:8		key:993		rid:{5,3}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(5,4)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:52 into Tree , RecordId={pid:5, sid:4} ******
+insert to non leaf node pid:1 : key:52
+pid:1 n:7 Max_n:12 t:6 minKey:3 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+
+i:1
+
+Read Leaf Node page:
+pid:3 n:7 Max_n:9 t:5 nextPage:7 minKey:3 maxKey:68
+position:0		key:3		rid:{0,0}
+position:1		key:18		rid:{4,5}
+position:2		key:33		rid:{4,7}
+position:3		key:47		rid:{2,2}
+position:4		key:58		rid:{5,0}
+position:5		key:64		rid:{1,7}
+position:6		key:68		rid:{1,6}
+
+insert pid:3 : key:52 -> keys[4]
+pid:3 n:8 Max_n:9 t:5 nextPage:7 minKey:3 maxKey:68
+position:0		key:3		rid:{0,0}
+position:1		key:18		rid:{4,5}
+position:2		key:33		rid:{4,7}
+position:3		key:47		rid:{2,2}
+position:4		key:52		rid:{5,4}
+position:5		key:58		rid:{5,0}
+position:6		key:64		rid:{1,7}
+position:7		key:68		rid:{1,6}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(5,5)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:737 into Tree , RecordId={pid:5, sid:5} ******
+insert to non leaf node pid:1 : key:737
+pid:1 n:7 Max_n:12 t:6 minKey:3 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+
+i:6
+
+Read Leaf Node page:
+pid:5 n:4 Max_n:9 t:5 nextPage:6 minKey:689 maxKey:724
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:724		rid:{2,6}
+
+insert pid:5 : key:737 -> keys[4]
+pid:5 n:5 Max_n:9 t:5 nextPage:6 minKey:689 maxKey:737
+position:0		key:689		rid:{1,1}
+position:1		key:718		rid:{1,3}
+position:2		key:722		rid:{0,3}
+position:3		key:724		rid:{2,6}
+position:4		key:737		rid:{5,5}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(5,6)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:902 into Tree , RecordId={pid:5, sid:6} ******
+insert to non leaf node pid:1 : key:902
+pid:1 n:7 Max_n:12 t:6 minKey:3 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+
+i:7
+
+Read Leaf Node page:
+pid:6 n:9 Max_n:9 t:5 nextPage:-1 minKey:768 maxKey:993
+position:0		key:768		rid:{2,4}
+position:1		key:771		rid:{2,5}
+position:2		key:778		rid:{0,1}
+position:3		key:808		rid:{3,2}
+position:4		key:809		rid:{0,5}
+position:5		key:842		rid:{2,7}
+position:6		key:923		rid:{4,0}
+position:7		key:976		rid:{3,1}
+position:8		key:993		rid:{5,3}
+
+Split Child pid:6  newPid:10
+pid:1 n:8 Max_n:12 t:6 minKey:3 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+position:7		key:809
+position:8	pid:10
+
+pid:6 n:4 Max_n:9 t:5 nextPage:10 minKey:768 maxKey:808
+position:0		key:768		rid:{2,4}
+position:1		key:771		rid:{2,5}
+position:2		key:778		rid:{0,1}
+position:3		key:808		rid:{3,2}
+
+pid:10 n:5 Max_n:9 t:5 nextPage:-1 minKey:809 maxKey:993
+position:0		key:809		rid:{0,5}
+position:1		key:842		rid:{2,7}
+position:2		key:923		rid:{4,0}
+position:3		key:976		rid:{3,1}
+position:4		key:993		rid:{5,3}
+
+insert pid:10 : key:902 -> keys[2]
+pid:10 n:6 Max_n:9 t:5 nextPage:-1 minKey:809 maxKey:993
+position:0		key:809		rid:{0,5}
+position:1		key:842		rid:{2,7}
+position:2		key:902		rid:{5,6}
+position:3		key:923		rid:{4,0}
+position:4		key:976		rid:{3,1}
+position:5		key:993		rid:{5,3}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(5,7)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:448 into Tree , RecordId={pid:5, sid:7} ******
+insert to non leaf node pid:1 : key:448
+pid:1 n:8 Max_n:12 t:6 minKey:3 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+position:7		key:809
+position:8	pid:10
+
+i:4
+
+Read Leaf Node page:
+pid:4 n:5 Max_n:9 t:5 nextPage:8 minKey:361 maxKey:454
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:389		rid:{4,2}
+position:3		key:422		rid:{1,2}
+position:4		key:454		rid:{3,5}
+
+insert pid:4 : key:448 -> keys[4]
+pid:4 n:6 Max_n:9 t:5 nextPage:8 minKey:361 maxKey:454
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:389		rid:{4,2}
+position:3		key:422		rid:{1,2}
+position:4		key:448		rid:{5,7}
+position:5		key:454		rid:{3,5}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(6,0)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:537 into Tree , RecordId={pid:6, sid:0} ******
+insert to non leaf node pid:1 : key:537
+pid:1 n:8 Max_n:12 t:6 minKey:3 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+position:7		key:809
+position:8	pid:10
+
+i:5
+
+Read Leaf Node page:
+pid:8 n:8 Max_n:9 t:5 nextPage:5 minKey:455 maxKey:641
+position:0		key:455		rid:{2,1}
+position:1		key:464		rid:{1,4}
+position:2		key:520		rid:{0,2}
+position:3		key:546		rid:{4,4}
+position:4		key:558		rid:{2,3}
+position:5		key:585		rid:{5,1}
+position:6		key:628		rid:{3,7}
+position:7		key:641		rid:{3,3}
+
+insert pid:8 : key:537 -> keys[3]
+pid:8 n:9 Max_n:9 t:5 nextPage:5 minKey:455 maxKey:641
+position:0		key:455		rid:{2,1}
+position:1		key:464		rid:{1,4}
+position:2		key:520		rid:{0,2}
+position:3		key:537		rid:{6,0}
+position:4		key:546		rid:{4,4}
+position:5		key:558		rid:{2,3}
+position:6		key:585		rid:{5,1}
+position:7		key:628		rid:{3,7}
+position:8		key:641		rid:{3,3}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(6,1)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:675 into Tree , RecordId={pid:6, sid:1} ******
+insert to non leaf node pid:1 : key:675
+pid:1 n:8 Max_n:12 t:6 minKey:3 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:689
+position:6	pid:5
+position:6		key:768
+position:7	pid:6
+position:7		key:809
+position:8	pid:10
+
+i:5
+
+Read Leaf Node page:
+pid:8 n:9 Max_n:9 t:5 nextPage:5 minKey:455 maxKey:641
+position:0		key:455		rid:{2,1}
+position:1		key:464		rid:{1,4}
+position:2		key:520		rid:{0,2}
+position:3		key:537		rid:{6,0}
+position:4		key:546		rid:{4,4}
+position:5		key:558		rid:{2,3}
+position:6		key:585		rid:{5,1}
+position:7		key:628		rid:{3,7}
+position:8		key:641		rid:{3,3}
+
+Split Child pid:8  newPid:11
+pid:1 n:9 Max_n:12 t:6 minKey:3 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:546
+position:6	pid:11
+position:6		key:689
+position:7	pid:5
+position:7		key:768
+position:8	pid:6
+position:8		key:809
+position:9	pid:10
+
+pid:8 n:4 Max_n:9 t:5 nextPage:11 minKey:455 maxKey:537
+position:0		key:455		rid:{2,1}
+position:1		key:464		rid:{1,4}
+position:2		key:520		rid:{0,2}
+position:3		key:537		rid:{6,0}
+
+pid:11 n:5 Max_n:9 t:5 nextPage:5 minKey:546 maxKey:641
+position:0		key:546		rid:{4,4}
+position:1		key:558		rid:{2,3}
+position:2		key:585		rid:{5,1}
+position:3		key:628		rid:{3,7}
+position:4		key:641		rid:{3,3}
+
+insert pid:11 : key:675 -> keys[5]
+pid:11 n:6 Max_n:9 t:5 nextPage:5 minKey:546 maxKey:675
+position:0		key:546		rid:{4,4}
+position:1		key:558		rid:{2,3}
+position:2		key:585		rid:{5,1}
+position:3		key:628		rid:{3,7}
+position:4		key:641		rid:{3,3}
+position:5		key:675		rid:{6,1}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(6,2)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:913 into Tree , RecordId={pid:6, sid:2} ******
+insert to non leaf node pid:1 : key:913
+pid:1 n:9 Max_n:12 t:6 minKey:3 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:546
+position:6	pid:11
+position:6		key:689
+position:7	pid:5
+position:7		key:768
+position:8	pid:6
+position:8		key:809
+position:9	pid:10
+
+i:9
+
+Read Leaf Node page:
+pid:10 n:6 Max_n:9 t:5 nextPage:-1 minKey:809 maxKey:993
+position:0		key:809		rid:{0,5}
+position:1		key:842		rid:{2,7}
+position:2		key:902		rid:{5,6}
+position:3		key:923		rid:{4,0}
+position:4		key:976		rid:{3,1}
+position:5		key:993		rid:{5,3}
+
+insert pid:10 : key:913 -> keys[3]
+pid:10 n:7 Max_n:9 t:5 nextPage:-1 minKey:809 maxKey:993
+position:0		key:809		rid:{0,5}
+position:1		key:842		rid:{2,7}
+position:2		key:902		rid:{5,6}
+position:3		key:913		rid:{6,2}
+position:4		key:923		rid:{4,0}
+position:5		key:976		rid:{3,1}
+position:6		key:993		rid:{5,3}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(6,3)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:32 into Tree , RecordId={pid:6, sid:3} ******
+insert to non leaf node pid:1 : key:32
+pid:1 n:9 Max_n:12 t:6 minKey:3 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:546
+position:6	pid:11
+position:6		key:689
+position:7	pid:5
+position:7		key:768
+position:8	pid:6
+position:8		key:809
+position:9	pid:10
+
+i:1
+
+Read Leaf Node page:
+pid:3 n:8 Max_n:9 t:5 nextPage:7 minKey:3 maxKey:68
+position:0		key:3		rid:{0,0}
+position:1		key:18		rid:{4,5}
+position:2		key:33		rid:{4,7}
+position:3		key:47		rid:{2,2}
+position:4		key:52		rid:{5,4}
+position:5		key:58		rid:{5,0}
+position:6		key:64		rid:{1,7}
+position:7		key:68		rid:{1,6}
+
+insert pid:3 : key:32 -> keys[2]
+pid:3 n:9 Max_n:9 t:5 nextPage:7 minKey:3 maxKey:68
+position:0		key:3		rid:{0,0}
+position:1		key:18		rid:{4,5}
+position:2		key:32		rid:{6,3}
+position:3		key:33		rid:{4,7}
+position:4		key:47		rid:{2,2}
+position:5		key:52		rid:{5,4}
+position:6		key:58		rid:{5,0}
+position:7		key:64		rid:{1,7}
+position:8		key:68		rid:{1,6}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(6,4)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:0 into Tree , RecordId={pid:6, sid:4} ******
+insert to non leaf node pid:1 : key:0
+pid:1 n:9 Max_n:12 t:6 minKey:3 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:546
+position:6	pid:11
+position:6		key:689
+position:7	pid:5
+position:7		key:768
+position:8	pid:6
+position:8		key:809
+position:9	pid:10
 
 i:0
 
 Read Leaf Node page:
 pid:2 n:0 Max_n:9 t:5 nextPage:3 minKey:2147483647 maxKey:-2147483648
 
-insert pid[2] : key[272] -> keys[0]
-pid:2 n:1 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:272
-position:0		key:272		rid:{0,1}
+insert pid:2 : key:0 -> keys[0]
+pid:2 n:1 Max_n:9 t:5 nextPage:3 minKey:0 maxKey:0
+position:0		key:0		rid:{6,4}
 
 
 **************** Insert Key End *************************
 
-Write to slot: (pid,sid)=(0,2)  RecordFile::RECORDS_PER_PAGE=8
+Write to slot: (pid,sid)=(6,5)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:2634 into Tree , RecordId={pid:0, sid:2} ******
-insert to non leaf node pid[1] : key[2634]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:2342
+************* Insert key:373 into Tree , RecordId={pid:6, sid:5} ******
+insert to non leaf node pid:1 : key:373
+pid:1 n:9 Max_n:12 t:6 minKey:0 maxKey:993
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:546
+position:6	pid:11
+position:6		key:689
+position:7	pid:5
+position:7		key:768
+position:8	pid:6
+position:8		key:809
+position:9	pid:10
+
+i:4
+
+Read Leaf Node page:
+pid:4 n:6 Max_n:9 t:5 nextPage:8 minKey:361 maxKey:454
+position:0		key:361		rid:{0,6}
+position:1		key:377		rid:{1,5}
+position:2		key:389		rid:{4,2}
+position:3		key:422		rid:{1,2}
+position:4		key:448		rid:{5,7}
+position:5		key:454		rid:{3,5}
+
+insert pid:4 : key:373 -> keys[1]
+pid:4 n:7 Max_n:9 t:5 nextPage:8 minKey:361 maxKey:454
+position:0		key:361		rid:{0,6}
+position:1		key:373		rid:{6,5}
+position:2		key:377		rid:{1,5}
+position:3		key:389		rid:{4,2}
+position:4		key:422		rid:{1,2}
+position:5		key:448		rid:{5,7}
+position:6		key:454		rid:{3,5}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(6,6)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:604 into Tree , RecordId={pid:6, sid:6} ******
+insert to non leaf node pid:1 : key:604
+pid:1 n:9 Max_n:12 t:6 minKey:0 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:546
+position:6	pid:11
+position:6		key:689
+position:7	pid:5
+position:7		key:768
+position:8	pid:6
+position:8		key:809
+position:9	pid:10
+
+i:6
+
+Read Leaf Node page:
+pid:11 n:6 Max_n:9 t:5 nextPage:5 minKey:546 maxKey:675
+position:0		key:546		rid:{4,4}
+position:1		key:558		rid:{2,3}
+position:2		key:585		rid:{5,1}
+position:3		key:628		rid:{3,7}
+position:4		key:641		rid:{3,3}
+position:5		key:675		rid:{6,1}
+
+insert pid:11 : key:604 -> keys[3]
+pid:11 n:7 Max_n:9 t:5 nextPage:5 minKey:546 maxKey:675
+position:0		key:546		rid:{4,4}
+position:1		key:558		rid:{2,3}
+position:2		key:585		rid:{5,1}
+position:3		key:604		rid:{6,6}
+position:4		key:628		rid:{3,7}
+position:5		key:641		rid:{3,3}
+position:6		key:675		rid:{6,1}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(6,7)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:406 into Tree , RecordId={pid:6, sid:7} ******
+insert to non leaf node pid:1 : key:406
+pid:1 n:9 Max_n:12 t:6 minKey:0 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:546
+position:6	pid:11
+position:6		key:689
+position:7	pid:5
+position:7		key:768
+position:8	pid:6
+position:8		key:809
+position:9	pid:10
+
+i:4
+
+Read Leaf Node page:
+pid:4 n:7 Max_n:9 t:5 nextPage:8 minKey:361 maxKey:454
+position:0		key:361		rid:{0,6}
+position:1		key:373		rid:{6,5}
+position:2		key:377		rid:{1,5}
+position:3		key:389		rid:{4,2}
+position:4		key:422		rid:{1,2}
+position:5		key:448		rid:{5,7}
+position:6		key:454		rid:{3,5}
+
+insert pid:4 : key:406 -> keys[4]
+pid:4 n:8 Max_n:9 t:5 nextPage:8 minKey:361 maxKey:454
+position:0		key:361		rid:{0,6}
+position:1		key:373		rid:{6,5}
+position:2		key:377		rid:{1,5}
+position:3		key:389		rid:{4,2}
+position:4		key:406		rid:{6,7}
+position:5		key:422		rid:{1,2}
+position:6		key:448		rid:{5,7}
+position:7		key:454		rid:{3,5}
+
+
+**************** Insert Key End *************************
+
+Write to slot: (pid,sid)=(7,0)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:17 into Tree , RecordId={pid:7, sid:0} ******
+insert to non leaf node pid:1 : key:17
+pid:1 n:9 Max_n:12 t:6 minKey:0 maxKey:993
+position:0	pid:2
+position:0		key:3
+position:1	pid:3
+position:1		key:87
+position:2	pid:7
+position:2		key:239
+position:3	pid:9
+position:3		key:361
+position:4	pid:4
+position:4		key:455
+position:5	pid:8
+position:5		key:546
+position:6	pid:11
+position:6		key:689
+position:7	pid:5
+position:7		key:768
+position:8	pid:6
+position:8		key:809
+position:9	pid:10
 
 i:1
 
 Read Leaf Node page:
-pid:3 n:1 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:2342
-position:0		key:2342		rid:{0,0}
+pid:3 n:9 Max_n:9 t:5 nextPage:7 minKey:3 maxKey:68
+position:0		key:3		rid:{0,0}
+position:1		key:18		rid:{4,5}
+position:2		key:32		rid:{6,3}
+position:3		key:33		rid:{4,7}
+position:4		key:47		rid:{2,2}
+position:5		key:52		rid:{5,4}
+position:6		key:58		rid:{5,0}
+position:7		key:64		rid:{1,7}
+position:8		key:68		rid:{1,6}
 
-insert pid[3] : key[2634] -> keys[1]
-pid:3 n:2 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:2634
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(0,3)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:3992 into Tree , RecordId={pid:0, sid:3} ******
-insert to non leaf node pid[1] : key[3992]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:2634
+Split Child pid:3  newPid:12
+pid:1 n:10 Max_n:12 t:6 minKey:0 maxKey:993
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:47
+position:2	pid:12
+position:2		key:87
+position:3	pid:7
+position:3		key:239
+position:4	pid:9
+position:4		key:361
+position:5	pid:4
+position:5		key:455
+position:6	pid:8
+position:6		key:546
+position:7	pid:11
+position:7		key:689
+position:8	pid:5
+position:8		key:768
+position:9	pid:6
+position:9		key:809
+position:10	pid:10
 
-i:1
+pid:3 n:4 Max_n:9 t:5 nextPage:12 minKey:3 maxKey:33
+position:0		key:3		rid:{0,0}
+position:1		key:18		rid:{4,5}
+position:2		key:32		rid:{6,3}
+position:3		key:33		rid:{4,7}
 
-Read Leaf Node page:
-pid:3 n:2 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:2634
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
+pid:12 n:5 Max_n:9 t:5 nextPage:7 minKey:47 maxKey:68
+position:0		key:47		rid:{2,2}
+position:1		key:52		rid:{5,4}
+position:2		key:58		rid:{5,0}
+position:3		key:64		rid:{1,7}
+position:4		key:68		rid:{1,6}
 
-insert pid[3] : key[3992] -> keys[2]
-pid:3 n:3 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:3992		rid:{0,3}
+insert pid:3 : key:17 -> keys[1]
+pid:3 n:5 Max_n:9 t:5 nextPage:12 minKey:3 maxKey:33
+position:0		key:3		rid:{0,0}
+position:1		key:17		rid:{7,0}
+position:2		key:18		rid:{4,5}
+position:3		key:32		rid:{6,3}
+position:4		key:33		rid:{4,7}
 
 
 **************** Insert Key End *************************
 
-Write to slot: (pid,sid)=(0,4)  RecordFile::RECORDS_PER_PAGE=8
+Write to slot: (pid,sid)=(7,1)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:2965 into Tree , RecordId={pid:0, sid:4} ******
-insert to non leaf node pid[1] : key[2965]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:3992
+************* Insert key:540 into Tree , RecordId={pid:7, sid:1} ******
+insert to non leaf node pid:1 : key:540
+pid:1 n:10 Max_n:12 t:6 minKey:0 maxKey:993
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:47
+position:2	pid:12
+position:2		key:87
+position:3	pid:7
+position:3		key:239
+position:4	pid:9
+position:4		key:361
+position:5	pid:4
+position:5		key:455
+position:6	pid:8
+position:6		key:546
+position:7	pid:11
+position:7		key:689
+position:8	pid:5
+position:8		key:768
+position:9	pid:6
+position:9		key:809
+position:10	pid:10
 
-i:1
+i:6
 
 Read Leaf Node page:
-pid:3 n:3 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:3992		rid:{0,3}
+pid:8 n:4 Max_n:9 t:5 nextPage:11 minKey:455 maxKey:537
+position:0		key:455		rid:{2,1}
+position:1		key:464		rid:{1,4}
+position:2		key:520		rid:{0,2}
+position:3		key:537		rid:{6,0}
 
-insert pid[3] : key[2965] -> keys[2]
-pid:3 n:4 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3992		rid:{0,3}
+insert pid:8 : key:540 -> keys[4]
+pid:8 n:5 Max_n:9 t:5 nextPage:11 minKey:455 maxKey:540
+position:0		key:455		rid:{2,1}
+position:1		key:464		rid:{1,4}
+position:2		key:520		rid:{0,2}
+position:3		key:537		rid:{6,0}
+position:4		key:540		rid:{7,1}
 
 
 **************** Insert Key End *************************
 
-Write to slot: (pid,sid)=(0,5)  RecordFile::RECORDS_PER_PAGE=8
+Write to slot: (pid,sid)=(7,2)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:3084 into Tree , RecordId={pid:0, sid:5} ******
-insert to non leaf node pid[1] : key[3084]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:3992
+************* Insert key:579 into Tree , RecordId={pid:7, sid:2} ******
+insert to non leaf node pid:1 : key:579
+pid:1 n:10 Max_n:12 t:6 minKey:0 maxKey:993
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:47
+position:2	pid:12
+position:2		key:87
+position:3	pid:7
+position:3		key:239
+position:4	pid:9
+position:4		key:361
+position:5	pid:4
+position:5		key:455
+position:6	pid:8
+position:6		key:546
+position:7	pid:11
+position:7		key:689
+position:8	pid:5
+position:8		key:768
+position:9	pid:6
+position:9		key:809
+position:10	pid:10
 
-i:1
+i:7
 
 Read Leaf Node page:
-pid:3 n:4 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3992		rid:{0,3}
+pid:11 n:7 Max_n:9 t:5 nextPage:5 minKey:546 maxKey:675
+position:0		key:546		rid:{4,4}
+position:1		key:558		rid:{2,3}
+position:2		key:585		rid:{5,1}
+position:3		key:604		rid:{6,6}
+position:4		key:628		rid:{3,7}
+position:5		key:641		rid:{3,3}
+position:6		key:675		rid:{6,1}
 
-insert pid[3] : key[3084] -> keys[3]
-pid:3 n:5 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3992		rid:{0,3}
+insert pid:11 : key:579 -> keys[2]
+pid:11 n:8 Max_n:9 t:5 nextPage:5 minKey:546 maxKey:675
+position:0		key:546		rid:{4,4}
+position:1		key:558		rid:{2,3}
+position:2		key:579		rid:{7,2}
+position:3		key:585		rid:{5,1}
+position:4		key:604		rid:{6,6}
+position:5		key:628		rid:{3,7}
+position:6		key:641		rid:{3,3}
+position:7		key:675		rid:{6,1}
 
 
 **************** Insert Key End *************************
 
-Write to slot: (pid,sid)=(0,6)  RecordFile::RECORDS_PER_PAGE=8
+Write to slot: (pid,sid)=(7,3)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:2244 into Tree , RecordId={pid:0, sid:6} ******
-insert to non leaf node pid[1] : key[2244]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:3992
+************* Insert key:825 into Tree , RecordId={pid:7, sid:3} ******
+insert to non leaf node pid:1 : key:825
+pid:1 n:10 Max_n:12 t:6 minKey:0 maxKey:993
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:47
+position:2	pid:12
+position:2		key:87
+position:3	pid:7
+position:3		key:239
+position:4	pid:9
+position:4		key:361
+position:5	pid:4
+position:5		key:455
+position:6	pid:8
+position:6		key:546
+position:7	pid:11
+position:7		key:689
+position:8	pid:5
+position:8		key:768
+position:9	pid:6
+position:9		key:809
+position:10	pid:10
 
-i:0
+i:10
 
 Read Leaf Node page:
-pid:2 n:1 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:272
-position:0		key:272		rid:{0,1}
+pid:10 n:7 Max_n:9 t:5 nextPage:-1 minKey:809 maxKey:993
+position:0		key:809		rid:{0,5}
+position:1		key:842		rid:{2,7}
+position:2		key:902		rid:{5,6}
+position:3		key:913		rid:{6,2}
+position:4		key:923		rid:{4,0}
+position:5		key:976		rid:{3,1}
+position:6		key:993		rid:{5,3}
 
-insert pid[2] : key[2244] -> keys[1]
-pid:2 n:2 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:2244
-position:0		key:272		rid:{0,1}
-position:1		key:2244		rid:{0,6}
+insert pid:10 : key:825 -> keys[1]
+pid:10 n:8 Max_n:9 t:5 nextPage:-1 minKey:809 maxKey:993
+position:0		key:809		rid:{0,5}
+position:1		key:825		rid:{7,3}
+position:2		key:842		rid:{2,7}
+position:3		key:902		rid:{5,6}
+position:4		key:913		rid:{6,2}
+position:5		key:923		rid:{4,0}
+position:6		key:976		rid:{3,1}
+position:7		key:993		rid:{5,3}
 
 
 **************** Insert Key End *************************
 
-Write to slot: (pid,sid)=(0,7)  RecordFile::RECORDS_PER_PAGE=8
+Write to slot: (pid,sid)=(7,4)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:1578 into Tree , RecordId={pid:0, sid:7} ******
-insert to non leaf node pid[1] : key[1578]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:3992
+************* Insert key:452 into Tree , RecordId={pid:7, sid:4} ******
+insert to non leaf node pid:1 : key:452
+pid:1 n:10 Max_n:12 t:6 minKey:0 maxKey:993
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:47
+position:2	pid:12
+position:2		key:87
+position:3	pid:7
+position:3		key:239
+position:4	pid:9
+position:4		key:361
+position:5	pid:4
+position:5		key:455
+position:6	pid:8
+position:6		key:546
+position:7	pid:11
+position:7		key:689
+position:8	pid:5
+position:8		key:768
+position:9	pid:6
+position:9		key:809
+position:10	pid:10
 
-i:0
+i:5
 
 Read Leaf Node page:
-pid:2 n:2 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:2244
-position:0		key:272		rid:{0,1}
-position:1		key:2244		rid:{0,6}
+pid:4 n:8 Max_n:9 t:5 nextPage:8 minKey:361 maxKey:454
+position:0		key:361		rid:{0,6}
+position:1		key:373		rid:{6,5}
+position:2		key:377		rid:{1,5}
+position:3		key:389		rid:{4,2}
+position:4		key:406		rid:{6,7}
+position:5		key:422		rid:{1,2}
+position:6		key:448		rid:{5,7}
+position:7		key:454		rid:{3,5}
 
-insert pid[2] : key[1578] -> keys[1]
-pid:2 n:3 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:2244
-position:0		key:272		rid:{0,1}
-position:1		key:1578		rid:{0,7}
-position:2		key:2244		rid:{0,6}
+insert pid:4 : key:452 -> keys[7]
+pid:4 n:9 Max_n:9 t:5 nextPage:8 minKey:361 maxKey:454
+position:0		key:361		rid:{0,6}
+position:1		key:373		rid:{6,5}
+position:2		key:377		rid:{1,5}
+position:3		key:389		rid:{4,2}
+position:4		key:406		rid:{6,7}
+position:5		key:422		rid:{1,2}
+position:6		key:448		rid:{5,7}
+position:7		key:452		rid:{7,4}
+position:8		key:454		rid:{3,5}
 
 
 **************** Insert Key End *************************
 
-Write to slot: (pid,sid)=(1,0)  RecordFile::RECORDS_PER_PAGE=8
+Write to slot: (pid,sid)=(7,5)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:3229 into Tree , RecordId={pid:1, sid:0} ******
-insert to non leaf node pid[1] : key[3229]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:3992
+************* Insert key:270 into Tree , RecordId={pid:7, sid:5} ******
+insert to non leaf node pid:1 : key:270
+pid:1 n:10 Max_n:12 t:6 minKey:0 maxKey:993
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:47
+position:2	pid:12
+position:2		key:87
+position:3	pid:7
+position:3		key:239
+position:4	pid:9
+position:4		key:361
+position:5	pid:4
+position:5		key:455
+position:6	pid:8
+position:6		key:546
+position:7	pid:11
+position:7		key:689
+position:8	pid:5
+position:8		key:768
+position:9	pid:6
+position:9		key:809
+position:10	pid:10
 
-i:1
+i:4
 
 Read Leaf Node page:
-pid:3 n:5 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3992		rid:{0,3}
+pid:9 n:7 Max_n:9 t:5 nextPage:4 minKey:239 maxKey:357
+position:0		key:239		rid:{1,0}
+position:1		key:268		rid:{2,0}
+position:2		key:279		rid:{0,7}
+position:3		key:283		rid:{4,3}
+position:4		key:335		rid:{4,6}
+position:5		key:342		rid:{5,2}
+position:6		key:357		rid:{4,1}
 
-insert pid[3] : key[3229] -> keys[4]
-pid:3 n:6 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3992		rid:{0,3}
+insert pid:9 : key:270 -> keys[2]
+pid:9 n:8 Max_n:9 t:5 nextPage:4 minKey:239 maxKey:357
+position:0		key:239		rid:{1,0}
+position:1		key:268		rid:{2,0}
+position:2		key:270		rid:{7,5}
+position:3		key:279		rid:{0,7}
+position:4		key:283		rid:{4,3}
+position:5		key:335		rid:{4,6}
+position:6		key:342		rid:{5,2}
+position:7		key:357		rid:{4,1}
 
 
 **************** Insert Key End *************************
 
-Write to slot: (pid,sid)=(1,1)  RecordFile::RECORDS_PER_PAGE=8
+Write to slot: (pid,sid)=(7,6)  RecordFile::RECORDS_PER_PAGE=8
 
-************* Insert key:4589 into Tree , RecordId={pid:1, sid:1} ******
-insert to non leaf node pid[1] : key[4589]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:3992
+************* Insert key:386 into Tree , RecordId={pid:7, sid:6} ******
+insert to non leaf node pid:1 : key:386
+pid:1 n:10 Max_n:12 t:6 minKey:0 maxKey:993
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:47
+position:2	pid:12
+position:2		key:87
+position:3	pid:7
+position:3		key:239
+position:4	pid:9
+position:4		key:361
+position:5	pid:4
+position:5		key:455
+position:6	pid:8
+position:6		key:546
+position:7	pid:11
+position:7		key:689
+position:8	pid:5
+position:8		key:768
+position:9	pid:6
+position:9		key:809
+position:10	pid:10
 
-i:1
+i:5
 
 Read Leaf Node page:
-pid:3 n:6 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:3992
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3992		rid:{0,3}
+pid:4 n:9 Max_n:9 t:5 nextPage:8 minKey:361 maxKey:454
+position:0		key:361		rid:{0,6}
+position:1		key:373		rid:{6,5}
+position:2		key:377		rid:{1,5}
+position:3		key:389		rid:{4,2}
+position:4		key:406		rid:{6,7}
+position:5		key:422		rid:{1,2}
+position:6		key:448		rid:{5,7}
+position:7		key:452		rid:{7,4}
+position:8		key:454		rid:{3,5}
 
-insert pid[3] : key[4589] -> keys[6]
-pid:3 n:7 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:4589
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3992		rid:{0,3}
-position:6		key:4589		rid:{1,1}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(1,2)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:528 into Tree , RecordId={pid:1, sid:2} ******
-insert to non leaf node pid[1] : key[528]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:4589
+Split Child pid:4  newPid:13
+pid:1 n:11 Max_n:12 t:6 minKey:0 maxKey:993
 position:0	pid:2
-position:0		key:2342
+position:0		key:3
 position:1	pid:3
+position:1		key:47
+position:2	pid:12
+position:2		key:87
+position:3	pid:7
+position:3		key:239
+position:4	pid:9
+position:4		key:361
+position:5	pid:4
+position:5		key:406
+position:6	pid:13
+position:6		key:455
+position:7	pid:8
+position:7		key:546
+position:8	pid:11
+position:8		key:689
+position:9	pid:5
+position:9		key:768
+position:10	pid:6
+position:10		key:809
+position:11	pid:10
 
-i:0
+pid:4 n:4 Max_n:9 t:5 nextPage:13 minKey:361 maxKey:389
+position:0		key:361		rid:{0,6}
+position:1		key:373		rid:{6,5}
+position:2		key:377		rid:{1,5}
+position:3		key:389		rid:{4,2}
 
-Read Leaf Node page:
-pid:2 n:3 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:2244
-position:0		key:272		rid:{0,1}
-position:1		key:1578		rid:{0,7}
-position:2		key:2244		rid:{0,6}
+pid:13 n:5 Max_n:9 t:5 nextPage:8 minKey:406 maxKey:454
+position:0		key:406		rid:{6,7}
+position:1		key:422		rid:{1,2}
+position:2		key:448		rid:{5,7}
+position:3		key:452		rid:{7,4}
+position:4		key:454		rid:{3,5}
 
-insert pid[2] : key[528] -> keys[1]
-pid:2 n:4 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:2244
-position:0		key:272		rid:{0,1}
-position:1		key:528		rid:{1,2}
-position:2		key:1578		rid:{0,7}
-position:3		key:2244		rid:{0,6}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(1,3)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:1390 into Tree , RecordId={pid:1, sid:3} ******
-insert to non leaf node pid[1] : key[1390]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-
-i:0
-
-Read Leaf Node page:
-pid:2 n:4 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:2244
-position:0		key:272		rid:{0,1}
-position:1		key:528		rid:{1,2}
-position:2		key:1578		rid:{0,7}
-position:3		key:2244		rid:{0,6}
-
-insert pid[2] : key[1390] -> keys[2]
-pid:2 n:5 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:2244
-position:0		key:272		rid:{0,1}
-position:1		key:528		rid:{1,2}
-position:2		key:1390		rid:{1,3}
-position:3		key:1578		rid:{0,7}
-position:4		key:2244		rid:{0,6}
+insert pid:4 : key:386 -> keys[3]
+pid:4 n:5 Max_n:9 t:5 nextPage:13 minKey:361 maxKey:389
+position:0		key:361		rid:{0,6}
+position:1		key:373		rid:{6,5}
+position:2		key:377		rid:{1,5}
+position:3		key:386		rid:{7,6}
+position:4		key:389		rid:{4,2}
 
 
 **************** Insert Key End *************************
 
-Write to slot: (pid,sid)=(1,4)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:3297 into Tree , RecordId={pid:1, sid:4} ******
-insert to non leaf node pid[1] : key[3297]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-
-i:1
-
-Read Leaf Node page:
-pid:3 n:7 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:4589
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3992		rid:{0,3}
-position:6		key:4589		rid:{1,1}
-
-insert pid[3] : key[3297] -> keys[5]
-pid:3 n:8 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:4589
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3297		rid:{1,4}
-position:6		key:3992		rid:{0,3}
-position:7		key:4589		rid:{1,1}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(1,5)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:3561 into Tree , RecordId={pid:1, sid:5} ******
-insert to non leaf node pid[1] : key[3561]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-
-i:1
-
-Read Leaf Node page:
-pid:3 n:8 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:4589
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3297		rid:{1,4}
-position:6		key:3992		rid:{0,3}
-position:7		key:4589		rid:{1,1}
-
-insert pid[3] : key[3561] -> keys[6]
-pid:3 n:9 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:4589
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3297		rid:{1,4}
-position:6		key:3561		rid:{1,5}
-position:7		key:3992		rid:{0,3}
-position:8		key:4589		rid:{1,1}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(1,6)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:3619 into Tree , RecordId={pid:1, sid:6} ******
-insert to non leaf node pid[1] : key[3619]
-pid:1 n:1 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-
-i:1
-
-Read Leaf Node page:
-pid:3 n:9 Max_n:9 t:5 nextPage:-1 minKey:2342 maxKey:4589
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3229		rid:{1,0}
-position:5		key:3297		rid:{1,4}
-position:6		key:3561		rid:{1,5}
-position:7		key:3992		rid:{0,3}
-position:8		key:4589		rid:{1,1}
-
-Split Child pid:3  newPid:4
-pid:1 n:2 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-
-pid:3 n:4 Max_n:9 t:5 nextPage:4 minKey:2342 maxKey:3084
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-
-pid:4 n:5 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3992		rid:{0,3}
-position:4		key:4589		rid:{1,1}
-
-insert pid[4] : key[3619] -> keys[3]
-pid:4 n:6 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3992		rid:{0,3}
-position:5		key:4589		rid:{1,1}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(1,7)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:4289 into Tree , RecordId={pid:1, sid:7} ******
-insert to non leaf node pid[1] : key[4289]
-pid:1 n:2 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-
-i:2
-
-Read Leaf Node page:
-pid:4 n:6 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3992		rid:{0,3}
-position:5		key:4589		rid:{1,1}
-
-insert pid[4] : key[4289] -> keys[5]
-pid:4 n:7 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3992		rid:{0,3}
-position:5		key:4289		rid:{1,7}
-position:6		key:4589		rid:{1,1}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(2,0)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:4583 into Tree , RecordId={pid:2, sid:0} ******
-insert to non leaf node pid[1] : key[4583]
-pid:1 n:2 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-
-i:2
-
-Read Leaf Node page:
-pid:4 n:7 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3992		rid:{0,3}
-position:5		key:4289		rid:{1,7}
-position:6		key:4589		rid:{1,1}
-
-insert pid[4] : key[4583] -> keys[6]
-pid:4 n:8 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3992		rid:{0,3}
-position:5		key:4289		rid:{1,7}
-position:6		key:4583		rid:{2,0}
-position:7		key:4589		rid:{1,1}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(2,1)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:1208 into Tree , RecordId={pid:2, sid:1} ******
-insert to non leaf node pid[1] : key[1208]
-pid:1 n:2 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-
-i:0
-
-Read Leaf Node page:
-pid:2 n:5 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:2244
-position:0		key:272		rid:{0,1}
-position:1		key:528		rid:{1,2}
-position:2		key:1390		rid:{1,3}
-position:3		key:1578		rid:{0,7}
-position:4		key:2244		rid:{0,6}
-
-insert pid[2] : key[1208] -> keys[2]
-pid:2 n:6 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:2244
-position:0		key:272		rid:{0,1}
-position:1		key:528		rid:{1,2}
-position:2		key:1208		rid:{2,1}
-position:3		key:1390		rid:{1,3}
-position:4		key:1578		rid:{0,7}
-position:5		key:2244		rid:{0,6}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(2,2)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:598 into Tree , RecordId={pid:2, sid:2} ******
-insert to non leaf node pid[1] : key[598]
-pid:1 n:2 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-
-i:0
-
-Read Leaf Node page:
-pid:2 n:6 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:2244
-position:0		key:272		rid:{0,1}
-position:1		key:528		rid:{1,2}
-position:2		key:1208		rid:{2,1}
-position:3		key:1390		rid:{1,3}
-position:4		key:1578		rid:{0,7}
-position:5		key:2244		rid:{0,6}
-
-insert pid[2] : key[598] -> keys[2]
-pid:2 n:7 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:2244
-position:0		key:272		rid:{0,1}
-position:1		key:528		rid:{1,2}
-position:2		key:598		rid:{2,2}
-position:3		key:1208		rid:{2,1}
-position:4		key:1390		rid:{1,3}
-position:5		key:1578		rid:{0,7}
-position:6		key:2244		rid:{0,6}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(2,3)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:3953 into Tree , RecordId={pid:2, sid:3} ******
-insert to non leaf node pid[1] : key[3953]
-pid:1 n:2 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-
-i:2
-
-Read Leaf Node page:
-pid:4 n:8 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3992		rid:{0,3}
-position:5		key:4289		rid:{1,7}
-position:6		key:4583		rid:{2,0}
-position:7		key:4589		rid:{1,1}
-
-insert pid[4] : key[3953] -> keys[4]
-pid:4 n:9 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3953		rid:{2,3}
-position:5		key:3992		rid:{0,3}
-position:6		key:4289		rid:{1,7}
-position:7		key:4583		rid:{2,0}
-position:8		key:4589		rid:{1,1}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(2,4)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:3099 into Tree , RecordId={pid:2, sid:4} ******
-insert to non leaf node pid[1] : key[3099]
-pid:1 n:2 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-
-i:1
-
-Read Leaf Node page:
-pid:3 n:4 Max_n:9 t:5 nextPage:4 minKey:2342 maxKey:3084
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-
-insert pid[3] : key[3099] -> keys[4]
-pid:3 n:5 Max_n:9 t:5 nextPage:4 minKey:2342 maxKey:3099
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3099		rid:{2,4}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(2,5)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:4515 into Tree , RecordId={pid:2, sid:5} ******
-insert to non leaf node pid[1] : key[4515]
-pid:1 n:2 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-
-i:2
-
-Read Leaf Node page:
-pid:4 n:9 Max_n:9 t:5 nextPage:-1 minKey:3229 maxKey:4589
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-position:4		key:3953		rid:{2,3}
-position:5		key:3992		rid:{0,3}
-position:6		key:4289		rid:{1,7}
-position:7		key:4583		rid:{2,0}
-position:8		key:4589		rid:{1,1}
-
-Split Child pid:4  newPid:5
-pid:1 n:3 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-position:2		key:3953
-position:3	pid:5
-
-pid:4 n:4 Max_n:9 t:5 nextPage:5 minKey:3229 maxKey:3619
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-
-pid:5 n:5 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4589
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4583		rid:{2,0}
-position:4		key:4589		rid:{1,1}
-
-insert pid[5] : key[4515] -> keys[3]
-pid:5 n:6 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4589
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4515		rid:{2,5}
-position:4		key:4583		rid:{2,0}
-position:5		key:4589		rid:{1,1}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(2,6)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:4657 into Tree , RecordId={pid:2, sid:6} ******
-insert to non leaf node pid[1] : key[4657]
-pid:1 n:3 Max_n:12 t:6 minKey:272 maxKey:4589
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-position:2		key:3953
-position:3	pid:5
-
-i:3
-
-Read Leaf Node page:
-pid:5 n:6 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4589
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4515		rid:{2,5}
-position:4		key:4583		rid:{2,0}
-position:5		key:4589		rid:{1,1}
-
-insert pid[5] : key[4657] -> keys[6]
-pid:5 n:7 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4657
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4515		rid:{2,5}
-position:4		key:4583		rid:{2,0}
-position:5		key:4589		rid:{1,1}
-position:6		key:4657		rid:{2,6}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(2,7)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:50 into Tree , RecordId={pid:2, sid:7} ******
-insert to non leaf node pid[1] : key[50]
-pid:1 n:3 Max_n:12 t:6 minKey:272 maxKey:4657
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-position:2		key:3953
-position:3	pid:5
-
-i:0
-
-Read Leaf Node page:
-pid:2 n:7 Max_n:9 t:5 nextPage:3 minKey:272 maxKey:2244
-position:0		key:272		rid:{0,1}
-position:1		key:528		rid:{1,2}
-position:2		key:598		rid:{2,2}
-position:3		key:1208		rid:{2,1}
-position:4		key:1390		rid:{1,3}
-position:5		key:1578		rid:{0,7}
-position:6		key:2244		rid:{0,6}
-
-insert pid[2] : key[50] -> keys[0]
-pid:2 n:8 Max_n:9 t:5 nextPage:3 minKey:50 maxKey:2244
-position:0		key:50		rid:{2,7}
-position:1		key:272		rid:{0,1}
-position:2		key:528		rid:{1,2}
-position:3		key:598		rid:{2,2}
-position:4		key:1208		rid:{2,1}
-position:5		key:1390		rid:{1,3}
-position:6		key:1578		rid:{0,7}
-position:7		key:2244		rid:{0,6}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(3,0)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:173 into Tree , RecordId={pid:3, sid:0} ******
-insert to non leaf node pid[1] : key[173]
-pid:1 n:3 Max_n:12 t:6 minKey:50 maxKey:4657
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-position:2		key:3953
-position:3	pid:5
-
-i:0
-
-Read Leaf Node page:
-pid:2 n:8 Max_n:9 t:5 nextPage:3 minKey:50 maxKey:2244
-position:0		key:50		rid:{2,7}
-position:1		key:272		rid:{0,1}
-position:2		key:528		rid:{1,2}
-position:3		key:598		rid:{2,2}
-position:4		key:1208		rid:{2,1}
-position:5		key:1390		rid:{1,3}
-position:6		key:1578		rid:{0,7}
-position:7		key:2244		rid:{0,6}
-
-insert pid[2] : key[173] -> keys[1]
-pid:2 n:9 Max_n:9 t:5 nextPage:3 minKey:50 maxKey:2244
-position:0		key:50		rid:{2,7}
-position:1		key:173		rid:{3,0}
-position:2		key:272		rid:{0,1}
-position:3		key:528		rid:{1,2}
-position:4		key:598		rid:{2,2}
-position:5		key:1208		rid:{2,1}
-position:6		key:1390		rid:{1,3}
-position:7		key:1578		rid:{0,7}
-position:8		key:2244		rid:{0,6}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(3,1)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:175 into Tree , RecordId={pid:3, sid:1} ******
-insert to non leaf node pid[1] : key[175]
-pid:1 n:3 Max_n:12 t:6 minKey:50 maxKey:4657
-position:0	pid:2
-position:0		key:2342
-position:1	pid:3
-position:1		key:3229
-position:2	pid:4
-position:2		key:3953
-position:3	pid:5
-
-i:0
-
-Read Leaf Node page:
-pid:2 n:9 Max_n:9 t:5 nextPage:3 minKey:50 maxKey:2244
-position:0		key:50		rid:{2,7}
-position:1		key:173		rid:{3,0}
-position:2		key:272		rid:{0,1}
-position:3		key:528		rid:{1,2}
-position:4		key:598		rid:{2,2}
-position:5		key:1208		rid:{2,1}
-position:6		key:1390		rid:{1,3}
-position:7		key:1578		rid:{0,7}
-position:8		key:2244		rid:{0,6}
-
-Split Child pid:2  newPid:6
-pid:1 n:4 Max_n:12 t:6 minKey:50 maxKey:4657
-position:0	pid:2
-position:0		key:598
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
-
-pid:2 n:4 Max_n:9 t:5 nextPage:6 minKey:50 maxKey:528
-position:0		key:50		rid:{2,7}
-position:1		key:173		rid:{3,0}
-position:2		key:272		rid:{0,1}
-position:3		key:528		rid:{1,2}
-
-pid:6 n:5 Max_n:9 t:5 nextPage:3 minKey:598 maxKey:2244
-position:0		key:598		rid:{2,2}
-position:1		key:1208		rid:{2,1}
-position:2		key:1390		rid:{1,3}
-position:3		key:1578		rid:{0,7}
-position:4		key:2244		rid:{0,6}
-
-insert pid[2] : key[175] -> keys[2]
-pid:2 n:5 Max_n:9 t:5 nextPage:6 minKey:50 maxKey:528
-position:0		key:50		rid:{2,7}
-position:1		key:173		rid:{3,0}
-position:2		key:175		rid:{3,1}
-position:3		key:272		rid:{0,1}
-position:4		key:528		rid:{1,2}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(3,2)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:841 into Tree , RecordId={pid:3, sid:2} ******
-insert to non leaf node pid[1] : key[841]
-pid:1 n:4 Max_n:12 t:6 minKey:50 maxKey:4657
-position:0	pid:2
-position:0		key:598
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
-
-i:1
-
-Read Leaf Node page:
-pid:6 n:5 Max_n:9 t:5 nextPage:3 minKey:598 maxKey:2244
-position:0		key:598		rid:{2,2}
-position:1		key:1208		rid:{2,1}
-position:2		key:1390		rid:{1,3}
-position:3		key:1578		rid:{0,7}
-position:4		key:2244		rid:{0,6}
-
-insert pid[6] : key[841] -> keys[1]
-pid:6 n:6 Max_n:9 t:5 nextPage:3 minKey:598 maxKey:2244
-position:0		key:598		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:1208		rid:{2,1}
-position:3		key:1390		rid:{1,3}
-position:4		key:1578		rid:{0,7}
-position:5		key:2244		rid:{0,6}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(3,3)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:897 into Tree , RecordId={pid:3, sid:3} ******
-insert to non leaf node pid[1] : key[897]
-pid:1 n:4 Max_n:12 t:6 minKey:50 maxKey:4657
-position:0	pid:2
-position:0		key:598
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
-
-i:1
-
-Read Leaf Node page:
-pid:6 n:6 Max_n:9 t:5 nextPage:3 minKey:598 maxKey:2244
-position:0		key:598		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:1208		rid:{2,1}
-position:3		key:1390		rid:{1,3}
-position:4		key:1578		rid:{0,7}
-position:5		key:2244		rid:{0,6}
-
-insert pid[6] : key[897] -> keys[2]
-pid:6 n:7 Max_n:9 t:5 nextPage:3 minKey:598 maxKey:2244
-position:0		key:598		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:897		rid:{3,3}
-position:3		key:1208		rid:{2,1}
-position:4		key:1390		rid:{1,3}
-position:5		key:1578		rid:{0,7}
-position:6		key:2244		rid:{0,6}
-
-
-**************** Insert Key End *************************
-
-Write to slot: (pid,sid)=(3,4)  RecordFile::RECORDS_PER_PAGE=8
-
-************* Insert key:1088 into Tree , RecordId={pid:3, sid:4} ******
-insert to non leaf node pid[1] : key[1088]
-pid:1 n:4 Max_n:12 t:6 minKey:50 maxKey:4657
-position:0	pid:2
-position:0		key:598
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
-
-i:1
-
-Read Leaf Node page:
-pid:6 n:7 Max_n:9 t:5 nextPage:3 minKey:598 maxKey:2244
-position:0		key:598		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:897		rid:{3,3}
-position:3		key:1208		rid:{2,1}
-position:4		key:1390		rid:{1,3}
-position:5		key:1578		rid:{0,7}
-position:6		key:2244		rid:{0,6}
-
-insert pid[6] : key[1088] -> keys[3]
-pid:6 n:8 Max_n:9 t:5 nextPage:3 minKey:598 maxKey:2244
-position:0		key:598		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:897		rid:{3,3}
-position:3		key:1088		rid:{3,4}
-position:4		key:1208		rid:{2,1}
-position:5		key:1390		rid:{1,3}
-position:6		key:1578		rid:{0,7}
-position:7		key:2244		rid:{0,6}
-
-
-**************** Insert Key End *************************
-
-
-
-****************** PRINT TREE:  **********************
-rootPid:1 pageNum:7 treeHeight:1 minKey:50 maxKey:4657
-
-pid:1 n:4 Max_n:12 t:6 minKey:50 maxKey:4657
-position:0	pid:2
-position:0		key:598
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
-
-pid:2 n:5 Max_n:9 t:5 nextPage:6 minKey:50 maxKey:528
-position:0		key:50		rid:{2,7}
-position:1		key:173		rid:{3,0}
-position:2		key:175		rid:{3,1}
-position:3		key:272		rid:{0,1}
-position:4		key:528		rid:{1,2}
-
-pid:3 n:5 Max_n:9 t:5 nextPage:4 minKey:2342 maxKey:3099
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3099		rid:{2,4}
-
-pid:4 n:4 Max_n:9 t:5 nextPage:5 minKey:3229 maxKey:3619
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-
-pid:5 n:7 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4657
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4515		rid:{2,5}
-position:4		key:4583		rid:{2,0}
-position:5		key:4589		rid:{1,1}
-position:6		key:4657		rid:{2,6}
-
-pid:6 n:8 Max_n:9 t:5 nextPage:3 minKey:598 maxKey:2244
-position:0		key:598		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:897		rid:{3,3}
-position:3		key:1088		rid:{3,4}
-position:4		key:1208		rid:{2,1}
-position:5		key:1390		rid:{1,3}
-position:6		key:1578		rid:{0,7}
-position:7		key:2244		rid:{0,6}
-
-
-****************** BFS TREE**********************
------------------>Non Leaf Node <----------------
-pid:1 n:4 Max_n:12 t:6 minKey:50 maxKey:4657
-position:0	pid:2
-position:0		key:598
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
-
------------------>Leaf Node <----------------
-pid:2 n:5 Max_n:9 t:5 nextPage:6 minKey:50 maxKey:528
-position:0		key:50		rid:{2,7}
-position:1		key:173		rid:{3,0}
-position:2		key:175		rid:{3,1}
-position:3		key:272		rid:{0,1}
-position:4		key:528		rid:{1,2}
-
------------------>Leaf Node <----------------
-pid:6 n:8 Max_n:9 t:5 nextPage:3 minKey:598 maxKey:2244
-position:0		key:598		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:897		rid:{3,3}
-position:3		key:1088		rid:{3,4}
-position:4		key:1208		rid:{2,1}
-position:5		key:1390		rid:{1,3}
-position:6		key:1578		rid:{0,7}
-position:7		key:2244		rid:{0,6}
-
------------------>Leaf Node <----------------
-pid:3 n:5 Max_n:9 t:5 nextPage:4 minKey:2342 maxKey:3099
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3099		rid:{2,4}
-
------------------>Leaf Node <----------------
-pid:4 n:4 Max_n:9 t:5 nextPage:5 minKey:3229 maxKey:3619
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-
------------------>Leaf Node <----------------
-pid:5 n:7 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4657
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4515		rid:{2,5}
-position:4		key:4583		rid:{2,0}
-position:5		key:4589		rid:{1,1}
-position:6		key:4657		rid:{2,6}
-
-
-****************** PRINT TREE END**********************
+Write to slot: (pid,sid)=(7,7)  RecordFile::RECORDS_PER_PAGE=8
+
+************* Insert key:598 into Tree , RecordId={pid:7, sid:7} ******
+New root:14, height=2
+Split Child pid:1  newPid:15
+getMinKey error!!
+error:-2
+error
+newPid != pf.endPid() error!
 Bruinbase> 
 WITHOUT INDEX
-2342 'Last Ride'
-272 'Baby Take'
-2634 'Matter of'
-3992 'Strangers'
-2965 'Notre Dam'
-3084 'Outside t'
-2244 'King Creo'
-1578 'G.I. Blue'
-3229 'Plein sol'
-4589 'Wild Ride'
-528 'Born Free'
-1390 'Fantastic'
-3297 'Professio'
-3561 'Sand Pebb'
-3619 'Seconds'
-4289 'Trouble w'
-4583 'Wild Ange'
-1208 'Easy Come'
-598 'Brotherho'
-3953 'Stay Away'
-3099 'Paint You'
-4515 'Wedding P'
-4657 'Wrecking '
-50 'A.K.A. Ca'
-173 'Angel Lev'
-175 'Angel Unc'
-841 'Count Yor'
-897 'Cry of th'
-1088 'Dirty Din'
-Bruinbase> Bruinbase> JOIN test AND test3
------------------Output----------------
-
----------------- Opening Nodes:1(40, 4657) 
-pid:1 n:4 Max_n:12 t:6 minKey:40 maxKey:4657
-position:0	pid:2
-position:0		key:49
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
-
-5(3953, 4657) 4(3229, 3953) 3(2342, 3229) 6(49, 2342) 2(40, 49) 
-********** Print List : R   size:4 *************
-6(49, 2342) 
-Neightbours: 1(50, 4657) 
-3(2342, 3229) 
-Neightbours: 1(50, 4657) 
-4(3229, 3953) 
-Neightbours: 1(50, 4657) 
-5(3953, 4657) 
-Neightbours: 1(50, 4657) 
-
-********** Print List End **********
-
-
-********** Print List : S   size:1 *************
-1(50, 4657) 
-Neightbours: 5(3953, 4657) 6(49, 2342) 3(2342, 3229) 4(3229, 3953) 
-
-********** Print List End **********
-
------------------Output----------------
-
----------------- Opening Nodes:6(49, 2342) 
-pid:6 n:8 Max_n:9 t:5 nextPage:3 minKey:49 maxKey:2244
-position:0		key:49		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:897		rid:{3,3}
-position:3		key:1088		rid:{3,4}
-position:4		key:1208		rid:{2,1}
-position:5		key:1390		rid:{1,3}
-position:6		key:1578		rid:{0,7}
-position:7		key:2244		rid:{0,6}
-
--1(2244, 2244) -1(1578, 1578) -1(1390, 1390) -1(1208, 1208) -1(1088, 1088) -1(897, 897) -1(841, 841) -1(49, 49) 
-********** Print List : R   size:10 *************
--1(841, 841) 
-Neightbours: 1(50, 4657) 
--1(897, 897) 
-Neightbours: 1(50, 4657) 
--1(1088, 1088) 
-Neightbours: 1(50, 4657) 
--1(1208, 1208) 
-Neightbours: 1(50, 4657) 
--1(1390, 1390) 
-Neightbours: 1(50, 4657) 
--1(1578, 1578) 
-Neightbours: 1(50, 4657) 
--1(2244, 2244) 
-Neightbours: 1(50, 4657) 
-3(2342, 3229) 
-Neightbours: 1(50, 4657) 
-4(3229, 3953) 
-Neightbours: 1(50, 4657) 
-5(3953, 4657) 
-Neightbours: 1(50, 4657) 
-
-********** Print List End **********
-
-
-********** Print List : S   size:1 *************
-1(50, 4657) 
-Neightbours: 5(3953, 4657) -1(2244, 2244) -1(1208, 1208) -1(897, 897) -1(841, 841) 4(3229, 3953) -1(1390, 1390) 3(2342, 3229) -1(1088, 1088) -1(1578, 1578) 
-
-********** Print List End **********
-
------------------Output----------------
-
----------------- Opening Nodes:1(50, 4657) 
-pid:1 n:4 Max_n:12 t:6 minKey:50 maxKey:4657
-position:0	pid:2
-position:0		key:598
-position:1	pid:6
-position:1		key:2342
-position:2	pid:3
-position:2		key:3229
-position:3	pid:4
-position:3		key:3953
-position:4	pid:5
-
-5(3953, 4657) 4(3229, 3953) 3(2342, 3229) 6(598, 2342) 2(50, 598) 
-********** Print List : R   size:10 *************
--1(841, 841) 
-Neightbours: 6(598, 2342) 
--1(897, 897) 
-Neightbours: 6(598, 2342) 
--1(1088, 1088) 
-Neightbours: 6(598, 2342) 
--1(1208, 1208) 
-Neightbours: 6(598, 2342) 
--1(1390, 1390) 
-Neightbours: 6(598, 2342) 
--1(1578, 1578) 
-Neightbours: 6(598, 2342) 
--1(2244, 2244) 
-Neightbours: 6(598, 2342) 
-3(2342, 3229) 
-Neightbours: 3(2342, 3229) 
-4(3229, 3953) 
-Neightbours: 4(3229, 3953) 
-5(3953, 4657) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
-
-********** Print List : S   size:4 *************
-6(598, 2342) 
-Neightbours: -1(2244, 2244) -1(841, 841) -1(897, 897) -1(1208, 1208) -1(1390, 1390) -1(1088, 1088) -1(1578, 1578) 
-3(2342, 3229) 
-Neightbours: 3(2342, 3229) 
-4(3229, 3953) 
-Neightbours: 4(3229, 3953) 
-5(3953, 4657) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
------------------Output----------------
-
----------------- Opening Nodes:6(598, 2342) 
-pid:6 n:8 Max_n:9 t:5 nextPage:3 minKey:598 maxKey:2244
-position:0		key:598		rid:{2,2}
-position:1		key:841		rid:{3,2}
-position:2		key:897		rid:{3,3}
-position:3		key:1088		rid:{3,4}
-position:4		key:1208		rid:{2,1}
-position:5		key:1390		rid:{1,3}
-position:6		key:1578		rid:{0,7}
-position:7		key:2244		rid:{0,6}
-
--1(2244, 2244) -1(1578, 1578) -1(1390, 1390) -1(1208, 1208) -1(1088, 1088) -1(897, 897) -1(841, 841) -1(598, 598) 
-********** Print List : R   size:10 *************
--1(841, 841) 
-Neightbours: -1(841, 841) 
--1(897, 897) 
-Neightbours: -1(897, 897) 
--1(1088, 1088) 
-Neightbours: -1(1088, 1088) 
--1(1208, 1208) 
-Neightbours: -1(1208, 1208) 
--1(1390, 1390) 
-Neightbours: -1(1390, 1390) 
--1(1578, 1578) 
-Neightbours: -1(1578, 1578) 
--1(2244, 2244) 
-Neightbours: -1(2244, 2244) 
-3(2342, 3229) 
-Neightbours: 3(2342, 3229) 
-4(3229, 3953) 
-Neightbours: 4(3229, 3953) 
-5(3953, 4657) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
-
-********** Print List : S   size:10 *************
--1(841, 841) 
-Neightbours: -1(841, 841) 
--1(897, 897) 
-Neightbours: -1(897, 897) 
--1(1088, 1088) 
-Neightbours: -1(1088, 1088) 
--1(1208, 1208) 
-Neightbours: -1(1208, 1208) 
--1(1390, 1390) 
-Neightbours: -1(1390, 1390) 
--1(1578, 1578) 
-Neightbours: -1(1578, 1578) 
--1(2244, 2244) 
-Neightbours: -1(2244, 2244) 
-3(2342, 3229) 
-Neightbours: 3(2342, 3229) 
-4(3229, 3953) 
-Neightbours: 4(3229, 3953) 
-5(3953, 4657) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
------------------Output----------------
-[841, 841], [897, 897], [1088, 1088], [1208, 1208], [1390, 1390], [1578, 1578], [2244, 2244], 
----------------- Opening Nodes:3(2342, 3229) 
-pid:3 n:5 Max_n:9 t:5 nextPage:4 minKey:2342 maxKey:3099
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3099		rid:{2,4}
-
--1(3099, 3099) -1(3084, 3084) -1(2965, 2965) -1(2634, 2634) -1(2342, 2342) 
-********** Print List : R   size:7 *************
--1(2342, 2342) 
-Neightbours: 3(2342, 3229) 
--1(2634, 2634) 
-Neightbours: 3(2342, 3229) 
--1(2965, 2965) 
-Neightbours: 3(2342, 3229) 
--1(3084, 3084) 
-Neightbours: 3(2342, 3229) 
--1(3099, 3099) 
-Neightbours: 3(2342, 3229) 
-4(3229, 3953) 
-Neightbours: 4(3229, 3953) 
-5(3953, 4657) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
-
-********** Print List : S   size:3 *************
-3(2342, 3229) 
-Neightbours: -1(3099, 3099) -1(3084, 3084) -1(2965, 2965) -1(2634, 2634) -1(2342, 2342) 
-4(3229, 3953) 
-Neightbours: 4(3229, 3953) 
-5(3953, 4657) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
------------------Output----------------
-
----------------- Opening Nodes:3(2342, 3229) 
-pid:3 n:5 Max_n:9 t:5 nextPage:4 minKey:2342 maxKey:3099
-position:0		key:2342		rid:{0,0}
-position:1		key:2634		rid:{0,2}
-position:2		key:2965		rid:{0,4}
-position:3		key:3084		rid:{0,5}
-position:4		key:3099		rid:{2,4}
-
--1(3099, 3099) -1(3084, 3084) -1(2965, 2965) -1(2634, 2634) -1(2342, 2342) 
-********** Print List : R   size:7 *************
--1(2342, 2342) 
-Neightbours: -1(2342, 2342) 
--1(2634, 2634) 
-Neightbours: -1(2634, 2634) 
--1(2965, 2965) 
-Neightbours: -1(2965, 2965) 
--1(3084, 3084) 
-Neightbours: -1(3084, 3084) 
--1(3099, 3099) 
-Neightbours: -1(3099, 3099) 
-4(3229, 3953) 
-Neightbours: 4(3229, 3953) 
-5(3953, 4657) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
-
-********** Print List : S   size:7 *************
--1(2342, 2342) 
-Neightbours: -1(2342, 2342) 
--1(2634, 2634) 
-Neightbours: -1(2634, 2634) 
--1(2965, 2965) 
-Neightbours: -1(2965, 2965) 
--1(3084, 3084) 
-Neightbours: -1(3084, 3084) 
--1(3099, 3099) 
-Neightbours: -1(3099, 3099) 
-4(3229, 3953) 
-Neightbours: 4(3229, 3953) 
-5(3953, 4657) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
------------------Output----------------
-[2342, 2342], [2634, 2634], [2965, 2965], [3084, 3084], [3099, 3099], 
----------------- Opening Nodes:4(3229, 3953) 
-pid:4 n:4 Max_n:9 t:5 nextPage:5 minKey:3229 maxKey:3619
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-
--1(3619, 3619) -1(3561, 3561) -1(3297, 3297) -1(3229, 3229) 
-********** Print List : R   size:5 *************
--1(3229, 3229) 
-Neightbours: 4(3229, 3953) 
--1(3297, 3297) 
-Neightbours: 4(3229, 3953) 
--1(3561, 3561) 
-Neightbours: 4(3229, 3953) 
--1(3619, 3619) 
-Neightbours: 4(3229, 3953) 
-5(3953, 4657) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
-
-********** Print List : S   size:2 *************
-4(3229, 3953) 
-Neightbours: -1(3561, 3561) -1(3229, 3229) -1(3297, 3297) -1(3619, 3619) 
-5(3953, 4657) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
------------------Output----------------
-
----------------- Opening Nodes:4(3229, 3953) 
-pid:4 n:4 Max_n:9 t:5 nextPage:5 minKey:3229 maxKey:3619
-position:0		key:3229		rid:{1,0}
-position:1		key:3297		rid:{1,4}
-position:2		key:3561		rid:{1,5}
-position:3		key:3619		rid:{1,6}
-
--1(3619, 3619) -1(3561, 3561) -1(3297, 3297) -1(3229, 3229) 
-********** Print List : R   size:5 *************
--1(3229, 3229) 
-Neightbours: -1(3229, 3229) 
--1(3297, 3297) 
-Neightbours: -1(3297, 3297) 
--1(3561, 3561) 
-Neightbours: -1(3561, 3561) 
--1(3619, 3619) 
-Neightbours: -1(3619, 3619) 
-5(3953, 4657) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
-
-********** Print List : S   size:5 *************
--1(3229, 3229) 
-Neightbours: -1(3229, 3229) 
--1(3297, 3297) 
-Neightbours: -1(3297, 3297) 
--1(3561, 3561) 
-Neightbours: -1(3561, 3561) 
--1(3619, 3619) 
-Neightbours: -1(3619, 3619) 
-5(3953, 4657) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
------------------Output----------------
-[3229, 3229], [3297, 3297], [3561, 3561], [3619, 3619], 
----------------- Opening Nodes:5(3953, 4657) 
-pid:5 n:7 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4657
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4515		rid:{2,5}
-position:4		key:4583		rid:{2,0}
-position:5		key:4589		rid:{1,1}
-position:6		key:4657		rid:{2,6}
-
--1(4657, 4657) -1(4589, 4589) -1(4583, 4583) -1(4515, 4515) -1(4289, 4289) -1(3992, 3992) -1(3953, 3953) 
-********** Print List : R   size:6 *************
--1(3953, 3953) 
-Neightbours: 5(3953, 4657) 
--1(3992, 3992) 
-Neightbours: 5(3953, 4657) 
--1(4289, 4289) 
-Neightbours: 5(3953, 4657) 
--1(4515, 4515) 
-Neightbours: 5(3953, 4657) 
--1(4583, 4583) 
-Neightbours: 5(3953, 4657) 
--1(4589, 4589) 
-Neightbours: 5(3953, 4657) 
-
-********** Print List End **********
-
-
-********** Print List : S   size:1 *************
-5(3953, 4657) 
-Neightbours: -1(3953, 3953) -1(4289, 4289) -1(4515, 4515) -1(4589, 4589) -1(3992, 3992) -1(4583, 4583) 
-
-********** Print List End **********
-
------------------Output----------------
-
----------------- Opening Nodes:5(3953, 4657) 
-pid:5 n:7 Max_n:9 t:5 nextPage:-1 minKey:3953 maxKey:4657
-position:0		key:3953		rid:{2,3}
-position:1		key:3992		rid:{0,3}
-position:2		key:4289		rid:{1,7}
-position:3		key:4515		rid:{2,5}
-position:4		key:4583		rid:{2,0}
-position:5		key:4589		rid:{1,1}
-position:6		key:4657		rid:{2,6}
-
--1(4657, 4657) -1(4589, 4589) -1(4583, 4583) -1(4515, 4515) -1(4289, 4289) -1(3992, 3992) -1(3953, 3953) 
-********** Print List : R   size:6 *************
--1(3953, 3953) 
-Neightbours: -1(3953, 3953) 
--1(3992, 3992) 
-Neightbours: -1(3992, 3992) 
--1(4289, 4289) 
-Neightbours: -1(4289, 4289) 
--1(4515, 4515) 
-Neightbours: -1(4515, 4515) 
--1(4583, 4583) 
-Neightbours: -1(4583, 4583) 
--1(4589, 4589) 
-Neightbours: -1(4589, 4589) 
-
-********** Print List End **********
-
-
-********** Print List : S   size:6 *************
--1(3953, 3953) 
-Neightbours: -1(3953, 3953) 
--1(3992, 3992) 
-Neightbours: -1(3992, 3992) 
--1(4289, 4289) 
-Neightbours: -1(4289, 4289) 
--1(4515, 4515) 
-Neightbours: -1(4515, 4515) 
--1(4583, 4583) 
-Neightbours: -1(4583, 4583) 
--1(4589, 4589) 
-Neightbours: -1(4589, 4589) 
-
-********** Print List End **********
-
------------------Output----------------
-[3953, 3953], [3992, 3992], [4289, 4289], [4515, 4515], [4583, 4583], [4589, 4589], Bruinbase> Bruinbase> 
+3 'test3'
+778 'test778'
+520 'test520'
+722 'test722'
+185 'test185'
+809 'test809'
+361 'test361'
+279 'test279'
+239 'test239'
+689 'test689'
+422 'test422'
+718 'test718'
+464 'test464'
+377 'test377'
+68 'test68'
+64 'test64'
+268 'test268'
+455 'test455'
+47 'test47'
+558 'test558'
+768 'test768'
+771 'test771'
+724 'test724'
+842 'test842'
+87 'test87'
+976 'test976'
+808 'test808'
+641 'test641'
+188 'test188'
+454 'test454'
+90 'test90'
+628 'test628'
+923 'test923'
+357 'test357'
+389 'test389'
+283 'test283'
+546 'test546'
+18 'test18'
+335 'test335'
+33 'test33'
+58 'test58'
+585 'test585'
+342 'test342'
+993 'test993'
+52 'test52'
+737 'test737'
+902 'test902'
+448 'test448'
+537 'test537'
+675 'test675'
+913 'test913'
+32 'test32'
+0 'test0'
+373 'test373'
+604 'test604'
+406 'test406'
+17 'test17'
+540 'test540'
+579 'test579'
+825 'test825'
+452 'test452'
+270 'test270'
+386 'test386'
+598 'test598'
+Bruinbase> 

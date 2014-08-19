@@ -161,18 +161,20 @@ RC BTreeIndex::insert(KeyType key, const RecordId& rid)
   if( root.n == 2*root.getT() - 1){
       DEBUG('i',"New root:%d, height=%d\n",newPid, treeHeight + 1);
       //new root
-      BTNode s;
-      s.isLeaf = false;
-      s.n = 0;
-      s.pids[0] = rootPid;
-      rootPid = s.pid = newPid;
+      BTNode newRoot;
+      newRoot.isLeaf = false;
+      newRoot.n = 0;
+      newRoot.pids[0] = rootPid;
+      rootPid = newRoot.pid = newPid;
+      newRoot.minKey = root.minKey;
+      newRoot.maxKey = root.maxKey;
       newPid++;
-      rc = s.splitChild(0,newPid, pf);
+      rc = newRoot.splitChild(0,newPid, pf);
       newPid ++;
       if(rc != 0) goto ERROR;
-      rc = s.insertNonFull(key, rid, newPid, pf);
+      rc = newRoot.insertNonFull(key, rid, newPid, pf);
       if(rc != 0) goto ERROR;
-      rc = s.write(rootPid,pf); 
+      rc = newRoot.write(rootPid,pf); 
       if(rc != 0) goto ERROR;
       treeHeight ++;
       

@@ -436,8 +436,8 @@ public:
     vector<IntervalNode*> heap;
     PageId pid;
     Range range;
-
-    IntervalNode(int p, Range r): pid(p), range(r)
+    string bossName;
+    IntervalNode(int p, Range r, string b): pid(p), range(r),bossName(b)
     {
     }
 
@@ -447,14 +447,16 @@ public:
     }
     void print()
     {
-        printf("%d(%d, %d) ", pid, range.min, range.max);
+        printf("%d(%d, %d)[\"%s\"] ", pid, range.min, range.max, bossName.c_str());
+        //printf("%d(%d, %d)[0x%x] ", pid, range.min, range.max, this);
     }
-    void printAll()
+    int printAll()
     {
         print();
         printf("\n\tNeightbours (%d): ",heap.size());
         printNeighbour();
         printf("\n");
+        return heap.size();
     }
     
     bool empty()
@@ -468,15 +470,17 @@ public:
     }
     int del( IntervalNode *node)
     {
-        printf("Delete neighbour to ");
+        printf("Delete neighbour from ");
+        this->print();
+        printf("to ");
         node->print();
         printf("\n");
-        printAll();
-        
+        //printAll();
+        printf("heap size:%d\n",heap.size()); 
         vector<IntervalNode*>::iterator it = heap.begin();
         for(; it!= heap.end(); it++)
         {
-            if( (*it) == node){
+            if( (*it)->pid == node->pid && (*it)->range.min == node->range.min){
                 heap.erase( it );
                 break;
             }
@@ -566,19 +570,25 @@ public:
     IntervalList(string n, BTreeIndex *i):name(n), idx(i)
     {
     }
-    void printList()
+    int printList()
     {
+        int refNum = 0;
         printf("\n********** Print List : %s   size:%d *************\n",name.c_str(),l.size());
         list<IntervalNode*>::iterator it = l.begin();
         while(it != l.end()){
-            (*it)->printAll();
+            refNum += (*it)->printAll();
             it++;
         }
-        printf("\n********** Print List End **********\n\n");
+        printf("\n********** Print List End:%d  **********\n\n",refNum);
+        return refNum;
     }
     bool empty()
     {
         return l.empty();
+    }
+    void insert(list<IntervalNode*>::iterator &it, IntervalNode* node  ){
+        l.insert(it, node);
+    //    it++;
     }
     void push(IntervalNode* node)
     {
@@ -595,8 +605,9 @@ public:
         return node;
     }
     void eraseEmptyNodes(){
-        list<IntervalNode*>::iterator it1 = l.begin(), it2;
         cout<<"Delete empty nodes:"<<endl;
+        /*
+        list<IntervalNode*>::iterator it1 = l.begin(), it2;
         while(it1 != l.end()) {
             if( (*it1)->empty() ){
                 printf("Delete Node:%d(%d, %d) is empty, delete it!\n", 
@@ -609,6 +620,17 @@ public:
             }else{
               it1 ++;
             }
+        }*/
+
+        while( l.front()->empty() ){
+            IntervalNode * node = this->pop();
+            printf("Delete Node:%d(%d, %d) is empty, delete it!\n", 
+                        node->pid, 
+                        node->range.min, 
+                        node->range.max);
+
+            delete node;
+            node = NULL;
         }
     }
 
@@ -617,7 +639,7 @@ public:
         list<IntervalNode*>::iterator it = l.begin();
         while(it!=l.end()){
             if( (*it)->pid == node->pid ){
-                 printf("Erase Node:%d(%d, %d) in %s\n", (*it)->pid, (*it)->range.min, (*it)->range.max,name.c_str());
+                printf("Erase Node:%d(%d, %d) in %s\n", (*it)->pid, (*it)->range.min, (*it)->range.max,name.c_str());
                 l.erase( it );
                 break;
             }
@@ -631,13 +653,28 @@ public:
     RC openNode( IntervalNode * chosenOne)
     {
         PageId cPid;
-
+        if(chosenOne->bossName.compare( this->name ) != 0){
+            printf("ERROR! Boss Error!\n");
+            return -1;
+        }
         chosenOne->print();
         cout<<endl;
         BTNode bnode;
         RC rc;
         int i;
-        
+        //find the position of chosen one
+        list<IntervalNode*>::iterator chosenOneIt = l.begin();
+        while(chosenOneIt!=l.end()){
+            if( (*chosenOneIt)->pid == chosenOne->pid ){
+                break;
+            }
+            chosenOneIt ++;
+        }
+        if(chosenOneIt == l.end()){
+             printf("ERROR: Cannot find the position of chosen one in %s!\n", name.c_str());
+             return -1;
+        }
+
 
         vector<IntervalNode*>::iterator it1 = chosenOne->heap.begin();
         while( it1 != chosenOne->heap.end() ){
@@ -649,16 +686,23 @@ public:
             return rc;
         }
         bnode.print();
+        printf("New Nodes: \n");
         if(!bnode.isLeaf){
             KeyType min,max;
-            max = bnode.maxKey;
-            for( i=bnode.n; i>=0; i--){
-                if( i==0 ) min = bnode.minKey;
-                else min = bnode.keys[i-1];
+            min = bnode.minKey;
+            for( i=0;i<=bnode.n; i++){
+                if( i== bnode.n) max = bnode.maxKey;
+                else max = bnode.keys[i];
+
+                if(min > max) {
+                    printf("ERROR: Range error(%d, %d)\n",min, max);
+                    return -1;
+                }
                 Range r(min, max);
-                IntervalNode * childNode = new IntervalNode(bnode.pids[i], r);
+                IntervalNode * childNode = new IntervalNode(bnode.pids[i], r, this->name);
                 childNode->print();
-                
+                printf("\n"); 
+
                 vector<IntervalNode*>::iterator it = chosenOne->heap.begin();
                 while( it != chosenOne->heap.end() ){
                     if( (*it)->pid == -1 ){
@@ -674,24 +718,23 @@ public:
                     }
                     it++;
                 }
-                max = min;
+                min = max;
                 if(!childNode->empty()) {
-                    this->push(childNode);
+                    this->insert(chosenOneIt, childNode);
                 }else{
                     delete childNode;
                 }
             }
         }else{
-            for( i=bnode.n-1; i>=0; i--){
+            for( i=0; i<=bnode.n-1;  i++){
                 KeyType key =  bnode.keys[i];
                 Range r(key, key);
-                IntervalNode * childNode = new IntervalNode( -1, r);
+                IntervalNode * childNode = new IntervalNode( -1, r, this->name);
                 childNode->print();
                 
                 vector<IntervalNode*>::iterator it = chosenOne->heap.begin();
                 while( it != chosenOne->heap.end() ){
                     if( (*it)->pid == -1){
-                        //printf("join out:[%d, %d]\n",key);
                         if( key == (*it)->range.min ){
                             childNode->addNeighbour( (*it) );
                             (*it)->addNeighbour( childNode );
@@ -706,12 +749,13 @@ public:
                 }
                 
                 if(!childNode->empty()) {
-                    this->push(childNode);
+                    this->insert(chosenOneIt, childNode);
                 }else{
                     delete childNode;
                 }
             }
         }
+        printf("\n");
         this->erase( chosenOne );
         delete chosenOne;
         chosenOne = NULL;
@@ -768,8 +812,8 @@ RC SqlEngine::join(const string& tableR, const string& tableS)
 
     Range rR(idxR.minKey , idxR.maxKey);
     Range rS(idxS.minKey , idxS.maxKey);
-    IntervalNode *n1 = new IntervalNode(idxR.rootPid ,rR);
-    IntervalNode *n2 = new IntervalNode(idxS.rootPid ,rS);
+    IntervalNode *n1 = new IntervalNode(idxR.rootPid, rR, R.name );
+    IntervalNode *n2 = new IntervalNode(idxS.rootPid, rS, S.name );
 
     R.push( n1 );
     S.push( n2 );
@@ -777,7 +821,17 @@ RC SqlEngine::join(const string& tableR, const string& tableS)
     n2->addNeighbour( n1);
 
     int k = 0;
+    int refNumR = 0;
+    int refNumS = 0;
     while( !R.empty() && !S.empty() ){
+        refNumR = R.printList();
+        refNumS = S.printList();
+        if( refNumR != refNumS ){
+            printf("ERROR!!  refNumR:%d refNumS:%d\n",refNumR, refNumS);
+            goto EXIT;
+        }
+        
+
         printf("-----------------Output:");
         while( R.front()->pid == -1 && S.front()->pid == -1){
             IntervalNode * rn = R.pop();
@@ -785,13 +839,21 @@ RC SqlEngine::join(const string& tableR, const string& tableS)
             if( rn->range.min == sn->range.min){
                 printf("[%d, %d], ",rn->range.min, rn->range.min);
             }else{
-                printf("Output error!!!!!!!!!\n");
+                /*printf("Output error!!!!!!!!!\n");
+                R.printList();
+                S.printList();
+
                 rc = -1;
                 goto EXIT;
+                */
             }
             delete rn;
             delete sn;
         }
+        printf("\n");
+        R.eraseEmptyNodes();
+        S.eraseEmptyNodes();
+
         if( R.empty() || S.empty()) break;
 
         IntervalNode *left, *chosenOne, *bn;
@@ -799,28 +861,24 @@ RC SqlEngine::join(const string& tableR, const string& tableS)
             left = R.front();
             bn = left->biggestNeighbour();
             if( (bn->range.max - bn->range.min) > (left->range.max - left->range.min) ){
-                printf("\n---------------- Opening Nodes of List S:\n");
-                S.openNode( bn );
+                printf("\n---------------- Opening Nodes of List S: ");
+                rc = S.openNode( bn );
             }else{
-                printf("\n---------------- Opening Nodes of List R:\n");
-                R.openNode( left );
+                printf("\n---------------- Opening Nodes of List R: ");
+                rc = R.openNode( left );
             }
         }else{
             left = S.front();
             bn = left->biggestNeighbour();
             if( (bn->range.max - bn->range.min) > (left->range.max - left->range.min) ){
-                printf("\n---------------- Opening Nodes of List R:\n");
-                R.openNode( bn );
+                printf("\n---------------- Opening Nodes of List R: ");
+                rc = R.openNode( bn );
             }else{
-                printf("\n---------------- Opening Nodes of List S:\n");
-                S.openNode( left );
+                printf("\n---------------- Opening Nodes of List S: ");
+                rc = S.openNode( left );
             }
         }
-
-        R.printList();
-        S.printList();
-        R.eraseEmptyNodes();
-        S.eraseEmptyNodes();
+        if(rc != 0)  goto EXIT;
 
 
         //if( k++ == 6) break;
@@ -883,6 +941,7 @@ RC SqlEngine::normal_join(const string& tableR, const string& tableS)
     KeyType rfkeyR,rfkeyS;
     RecordId recR, recS;
     string valueR,valueS;
+    int valueRint, valueSint;
     idxR.getFirstKey( cursorR );
     idxS.getFirstKey( cursorS );
     idxR.readForward( cursorR, keyR, recR );
@@ -900,8 +959,10 @@ RC SqlEngine::normal_join(const string& tableR, const string& tableS)
             rfS.read(recS, rfkeyS, valueS);
         }else if( keyR < keyS ){
             idxR.readForward( cursorR, keyR, recR );
+            rfR.read(recR, rfkeyR, valueR);
         }else{
             idxS.readForward( cursorS, keyS, recS );
+            rfS.read(recS, rfkeyS, valueS);
         }
     }
 

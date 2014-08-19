@@ -14,4 +14,4 @@ clean:
 	rm -f bruinbase bruinbase.exe *.o *~ lex.sql.c SqlParser.tab.c SqlParser.tab.h
 
 rm:
-	rm -rf  test.idx test.tbl test2.idx test2.tbl  movie.tbl test3.idx test3.tbl
+	rm -rf  test.idx test.tbl test2.idx test2.tbl  movie.tbl test3.idx test3.tbl r.idx r.tbl s.idx s.tbl

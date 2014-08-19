@@ -3,7 +3,7 @@ use strict;
 my $pl = 0;
 my @array;
 my $i;
-my $max = 10000000 ;
+my $max = 1000 ;
 for($i=0; $i<=$max; $i++){
     $array[$i]=$i;
 }

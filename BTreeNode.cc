@@ -49,6 +49,7 @@ RC BTNode::read(PageId p, const PageFile& pf)
     RC rc;
     // read the page containing the leaf node
     if ((rc = pf.read(p, buffer)) < 0) return rc;
+    this->pf = pf;
     this->pid = p;
     
     // the second four bytes of a page contains # keys in the page
@@ -69,6 +70,18 @@ RC BTNode::write( PageFile& pf)
 { 
     RC rc;
     if(pid == -1 ) return -1;
+    
+    if(n>0 && minKey > keys[0] ){
+        printf("ERROR: minKey:%d keys[0]:%d\n",minKey, keys[0]);
+        print();
+        return -1;
+    }else if( n>0 && maxKey < keys[n-1]){
+        printf("ERROR: maxKey:%d keys[n-1]:%d\n",maxKey, keys[n-1]);
+        print();
+        return -1;
+    }
+
+
     // write the page to the disk
     memcpy(buffer, &isLeaf, sizeof(bool));
     memcpy(buffer+sizeof(bool), &n, sizeof(int));
@@ -91,6 +104,17 @@ RC BTNode::write(PageId p,PageFile& pf)
     RC rc;
     // write the page to the disk
     if(this->pid != p)  printf("WARNING:pid[%d] != p[%d]\n",pid,p);
+    
+    if(n>0 && minKey > keys[0] ){
+        printf("ERROR: minKey:%d keys[0]:%d\n",minKey, keys[0]);
+        print();
+        return -1;
+    }else if( n>0 && maxKey < keys[n-1]){
+        printf("ERROR: maxKey:%d keys[n-1]:%d\n",maxKey, keys[n-1]);
+        print();
+        return -1;
+    }
+
     memcpy(buffer, &isLeaf, sizeof(bool));
     memcpy(buffer+sizeof(bool), &n, sizeof(int));
     memcpy(buffer+sizeof(bool)+sizeof(int), &nextPage, sizeof(PageId));
@@ -135,7 +159,7 @@ RC BTNode::insertNonFull(KeyType key, const RecordId& rid, int &newPid, PageFile
         rids[i+1].sid = rid.sid;
         
         n++;
-        DEBUG('i',"insert pid[%d] : key[%d] -> keys[%d]\n",pid, key, i+1);
+        DEBUG('i',"insert pid:%d : key:%d -> keys[%d]\n",pid, key, i+1);
         if(key > maxKey) maxKey = key;
         if(key < minKey) minKey = key;
         if(DebugIsEnabled('i')) print();
@@ -145,7 +169,7 @@ RC BTNode::insertNonFull(KeyType key, const RecordId& rid, int &newPid, PageFile
         return 0;
     }else{
         BTNode node;
-        DEBUG('i',"insert to non leaf node pid[%d] : key[%d]\n",pid, key);
+        DEBUG('i',"insert to non leaf node pid:%d : key:%d\n",pid, key);
         if(DebugIsEnabled('i')) print();
         while(i>=0 && key < keys[i]) i--;
         i++;
@@ -179,6 +203,51 @@ RC BTNode::insertNonFull(KeyType key, const RecordId& rid, int &newPid, PageFile
 ERROR:
     printf("error insertNonFull\n");
     return rc;    
+}
+RC BTNode::getMinKey(KeyType &minKey)
+{
+    RC rc = 0;
+    BTNode child;
+    if( this->n <= 0) {
+        rc = -1;
+        goto EXIT;
+    }
+
+    if( this->isLeaf ){
+        minKey = keys[0];
+        return 0;
+    }else{
+        if( (rc = child.read( this->pids[0], pf)) != 0) {rc = -2; goto EXIT;}
+        minKey = child.minKey;
+        return 0;
+    }
+
+EXIT:
+    if(rc != 0) printf("getMinKey error!!\n");
+    return rc;
+}
+
+RC BTNode::getMaxKey(KeyType &maxKey)
+{
+    RC rc = 0;
+    BTNode child;
+    if( this->n <= 0) {
+        rc = -1;
+        goto EXIT;
+    }
+
+    if( this->isLeaf ){
+        minKey = keys[n-1];
+        return 0;
+    }else{
+        if( (rc = child.read( this->pids[n], pf)) != 0) {rc = -2; goto EXIT;}
+        maxKey = child.maxKey;
+        return 0;
+    }
+
+EXIT:
+    if(rc != 0) printf("getMaxKey error!!\n");
+    return rc;
 }
 
 /*
@@ -235,6 +304,12 @@ RC BTNode::splitChild(int i, PageId newPid, PageFile& pf)
         }
 
         oldN.n = oldN.n - newN.n - 1;
+        rc = newN.getMinKey( newN.minKey ); 
+        if( rc != 0 ) goto ERROR;
+        newN.maxKey = oldN.maxKey;
+        rc = oldN.getMaxKey( oldN.maxKey );
+        if( rc != 0 ) goto ERROR;
+
         for(j=n; j>=i+1; j--)
             keys[j] = keys[j-1];
         for(j=n+1; j>=i+2; j--)
@@ -248,9 +323,12 @@ RC BTNode::splitChild(int i, PageId newPid, PageFile& pf)
         oldN.print();
         newN.print();
     }
-    oldN.write( pf );
-    this->write( pf );
-    newN.write( pf);
+    rc = oldN.write( pf );
+    if(rc != 0) goto ERROR;
+    rc = this->write( pf );
+    if(rc != 0) goto ERROR;
+    rc = newN.write( pf);
+    if(rc != 0) goto ERROR;
     return 0;
 ERROR:
     printf("error:%d\n",rc);
