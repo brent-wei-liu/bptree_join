@@ -49,7 +49,6 @@ RC BTNode::read(PageId p, const PageFile& pf)
     RC rc;
     // read the page containing the leaf node
     if ((rc = pf.read(p, buffer)) < 0) return rc;
-    this->pf = pf;
     this->pid = p;
     
     // the second four bytes of a page contains # keys in the page
@@ -204,21 +203,28 @@ ERROR:
     printf("error insertNonFull\n");
     return rc;    
 }
-RC BTNode::getMinKey(KeyType &minKey)
+RC BTNode::getMinKey( PageFile &pf, KeyType &min)
 {
     RC rc = 0;
     BTNode child;
-    if( this->n <= 0) {
+    if( n <= 0) {
         rc = -1;
+        printf("ERROR: n <= 0\n");
         goto EXIT;
     }
 
-    if( this->isLeaf ){
-        minKey = keys[0];
+    if( isLeaf ){
+        min = keys[0];
+        //printf("getMinKey: %d n:%d pid:%d\n",min, n, pid);
         return 0;
     }else{
-        if( (rc = child.read( this->pids[0], pf)) != 0) {rc = -2; goto EXIT;}
-        minKey = child.minKey;
+        if( (rc = child.read( pids[0], pf)) != 0) {
+            printf("ERROR: read child node error!!\n");
+            rc = -2;
+            goto EXIT;
+        }
+        min = child.minKey;
+        //printf("getMinKey: %d n:%d child pid:%d\n",min, n, child.pid);
         return 0;
     }
 
@@ -227,21 +233,29 @@ EXIT:
     return rc;
 }
 
-RC BTNode::getMaxKey(KeyType &maxKey)
+
+RC BTNode::getMaxKey( PageFile &pf, KeyType &max)
 {
     RC rc = 0;
     BTNode child;
     if( this->n <= 0) {
         rc = -1;
+        printf("ERROR: n <= 0\n");
         goto EXIT;
     }
 
     if( this->isLeaf ){
-        minKey = keys[n-1];
+        max = keys[n - 1];
+        //printf("getMaxKey: %d n:%d pid:%d\n",max, n, pid);
         return 0;
     }else{
-        if( (rc = child.read( this->pids[n], pf)) != 0) {rc = -2; goto EXIT;}
-        maxKey = child.maxKey;
+        if( (rc = child.read( pids[n], pf)) != 0) {
+            printf("ERROR: read child node error!!\n");
+            rc = -2;
+            goto EXIT;
+        }
+        max = child.maxKey;
+        //printf("getMaxKey: %d n:%d child pid:%d\n",max, n, child.pid);
         return 0;
     }
 
@@ -280,9 +294,6 @@ RC BTNode::splitChild(int i, PageId newPid, PageFile& pf)
             newN.rids[j] = oldN.rids[j+t-1];
         }
         oldN.n = oldN.n - t;
-        oldN.maxKey = oldN.keys[oldN.n - 1];
-        newN.minKey = newN.keys[0];
-        newN.maxKey = newN.keys[newN.n - 1];
         for(j=n; j>=i+1; j--)
             keys[j] = keys[j-1];
         for(j=n+1; j>=i+2; j--)
@@ -304,12 +315,6 @@ RC BTNode::splitChild(int i, PageId newPid, PageFile& pf)
         }
 
         oldN.n = oldN.n - newN.n - 1;
-        rc = newN.getMinKey( newN.minKey ); 
-        if( rc != 0 ) goto ERROR;
-        newN.maxKey = oldN.maxKey;
-        rc = oldN.getMaxKey( oldN.maxKey );
-        if( rc != 0 ) goto ERROR;
-
         for(j=n; j>=i+1; j--)
             keys[j] = keys[j-1];
         for(j=n+1; j>=i+2; j--)
@@ -318,6 +323,12 @@ RC BTNode::splitChild(int i, PageId newPid, PageFile& pf)
         pids[i+1] = newN.pid;
         n++;
     }
+    newN.maxKey = oldN.maxKey;
+    rc = newN.getMinKey( pf, newN.minKey );
+    if( rc != 0 ) goto ERROR;
+    rc = oldN.getMaxKey( pf, oldN.maxKey );
+    if( rc != 0 ) goto ERROR;
+
     if(DebugIsEnabled('i')){
         this->print();
         oldN.print();

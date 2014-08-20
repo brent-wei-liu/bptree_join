@@ -463,20 +463,28 @@ public:
     {
         return heap.size() == 0;
     }
+    
     void push( IntervalNode *node)
     {
         heap.push_back(node);
-        push_heap(heap.begin(), heap.end());
+        //HEAP
+        //push_heap(heap.begin(), heap.end());
     }
     int del( IntervalNode *node)
     {
-        printf("Delete neighbour from ");
-        this->print();
-        printf("to ");
-        node->print();
-        printf("\n");
+        if(DebugIsEnabled('j')){
+            printf("Delete neighbour from ");
+            this->print();
+            printf("to ");
+            node->print();
+            printf("\n");
         //printAll();
-        printf("heap size:%d\n",heap.size()); 
+            printf("heap size:%d\n",heap.size());
+        }
+        if( heap.size() < 0 ){
+            printf("Delete neighbour error!");
+            return -1;
+        }
         vector<IntervalNode*>::iterator it = heap.begin();
         for(; it!= heap.end(); it++)
         {
@@ -485,27 +493,26 @@ public:
                 break;
             }
         }
-        if( !heap.empty() && it == heap.end() )  {
+    /*    if( !heap.empty() && it == heap.end() )  {
             printf("delete neighbour error\n");
             printAll();
             return -1;
-        }else{
-        /*    printf("After Delete:");
-            printAll();
-            */
         }
-
-        make_heap( heap.begin(), heap.end() );
+*/
+        //HEAP
+        //make_heap( heap.begin(), heap.end() );
         return 0;
     }
-
+/*
     IntervalNode* pop()
     {
         IntervalNode* node = heap.front();
-        pop_heap(heap.begin(), heap.end());
-        heap.pop_back();
+        //HEAP
+        //pop_heap(heap.begin(), heap.end());
+        //heap.pop_back();
         return node;
     }
+*/
     void printNeighbour()
     {
         vector<IntervalNode*>::iterator it = heap.begin();
@@ -513,18 +520,28 @@ public:
             (*it)->print();
         }
     }
-    IntervalNode* biggestNeighbour()
+    RC biggestNeighbour(IntervalNode* &biggest)
     {
-        IntervalNode* biggest = NULL;
+        RC rc = 0;
+        biggest = NULL;
+        int biggestRange = 0;
         //find big range in neighbours
         
         if( !this->empty() ){
-            biggest = this->heap.front();
+            //HEAP
+            //biggest = this->heap.front();
+            for( int i = 0; i<heap.size(); i++){
+                if(heap[i]->pid != -1 && ((heap[i]->range.max - heap[i]->range.min) > biggestRange) ){
+                    biggestRange = heap[i]->range.max - heap[i]->range.min;
+                    biggest = heap[i];
+                }
+            }
         }else{
             printf("Biggest Neighbour error!");
+            rc = -1;
         }
 
-        return biggest;
+        return rc;
     }
     int addNeighbour(IntervalNode* to)
     {
@@ -533,8 +550,7 @@ public:
     }
     int deleteNeighbour(IntervalNode* to)
     {
-        this->del( to );
-        return 0;
+        return del( to );
     }
 
 };
@@ -555,7 +571,7 @@ static bool overlap(Range r1, Range r2)
         result = true;
     else
         result =  false;
-    printf(" overlap( (%d, %d), (%d, %d) )=%d\n", r1.min, r1.max, r2.min, r2.max, result);
+    DEBUG('j'," overlap( (%d, %d), (%d, %d) )=%d\n", r1.min, r1.max, r2.min, r2.max, result);
     return result;
 }
 
@@ -605,12 +621,12 @@ public:
         return node;
     }
     void eraseEmptyNodes(){
-        cout<<"Delete empty nodes:"<<endl;
-        /*
+        DEBUG('j',"Delete empty nodes:");
+        
         list<IntervalNode*>::iterator it1 = l.begin(), it2;
         while(it1 != l.end()) {
             if( (*it1)->empty() ){
-                printf("Delete Node:%d(%d, %d) is empty, delete it!\n", 
+                DEBUG('j',"Delete Node:%d(%d, %d) is empty, delete it!\n", 
                         (*it1)->pid, 
                         (*it1)->range.min, 
                         (*it1)->range.max);
@@ -620,8 +636,8 @@ public:
             }else{
               it1 ++;
             }
-        }*/
-
+        }
+/*
         while( l.front()->empty() ){
             IntervalNode * node = this->pop();
             printf("Delete Node:%d(%d, %d) is empty, delete it!\n", 
@@ -632,6 +648,7 @@ public:
             delete node;
             node = NULL;
         }
+        */
     }
 
     void erase(IntervalNode * node)
@@ -639,26 +656,34 @@ public:
         list<IntervalNode*>::iterator it = l.begin();
         while(it!=l.end()){
             if( (*it)->pid == node->pid ){
-                printf("Erase Node:%d(%d, %d) in %s\n", (*it)->pid, (*it)->range.min, (*it)->range.max,name.c_str());
+                DEBUG('j',"Erase Node:%d(%d, %d) in %s\n", (*it)->pid, (*it)->range.min, (*it)->range.max,name.c_str());
                 l.erase( it );
                 break;
             }
             it ++;
         }
         if(it == l.end()){
-             printf("Erase Node:%d(%d, %d) in %s Failed!\n", node->pid, node->range.min, node->range.max,name.c_str());
+             DEBUG('j',"Erase Node:%d(%d, %d) in %s Failed!\n", node->pid, node->range.min, node->range.max,name.c_str());
         }
     }
 
     RC openNode( IntervalNode * chosenOne)
     {
         PageId cPid;
+
+        if(DebugIsEnabled('j')){
+            chosenOne->print();
+            cout<<endl;
+        }
         if(chosenOne->bossName.compare( this->name ) != 0){
             printf("ERROR! Boss Error!\n");
             return -1;
         }
-        chosenOne->print();
-        cout<<endl;
+        if(chosenOne->pid == -1){
+            printf("ERROR! pid Error!\n");
+            return -1;
+        }
+
         BTNode bnode;
         RC rc;
         int i;
@@ -678,15 +703,18 @@ public:
 
         vector<IntervalNode*>::iterator it1 = chosenOne->heap.begin();
         while( it1 != chosenOne->heap.end() ){
-            (*it1)->deleteNeighbour( chosenOne );
+            rc = (*it1)->deleteNeighbour( chosenOne );
+            if ( rc != 0 ) return -1;
             it1++;
         }
         rc = idx->getBTNode(chosenOne->pid, bnode);
         if(rc != 0){
             return rc;
         }
-        bnode.print();
-        printf("New Nodes: \n");
+        if(DebugIsEnabled('j')){
+            bnode.print();
+            printf("New Nodes: \n");
+        }
         if(!bnode.isLeaf){
             KeyType min,max;
             min = bnode.minKey;
@@ -700,8 +728,10 @@ public:
                 }
                 Range r(min, max);
                 IntervalNode * childNode = new IntervalNode(bnode.pids[i], r, this->name);
-                childNode->print();
-                printf("\n"); 
+                if(DebugIsEnabled('j')){
+                    childNode->print();
+                    printf("\n");
+                }
 
                 vector<IntervalNode*>::iterator it = chosenOne->heap.begin();
                 while( it != chosenOne->heap.end() ){
@@ -730,7 +760,7 @@ public:
                 KeyType key =  bnode.keys[i];
                 Range r(key, key);
                 IntervalNode * childNode = new IntervalNode( -1, r, this->name);
-                childNode->print();
+                if(DebugIsEnabled('i')) childNode->print();
                 
                 vector<IntervalNode*>::iterator it = chosenOne->heap.begin();
                 while( it != chosenOne->heap.end() ){
@@ -755,7 +785,7 @@ public:
                 }
             }
         }
-        printf("\n");
+        DEBUG('j',"\n");
         this->erase( chosenOne );
         delete chosenOne;
         chosenOne = NULL;
@@ -824,20 +854,34 @@ RC SqlEngine::join(const string& tableR, const string& tableS)
     int refNumR = 0;
     int refNumS = 0;
     while( !R.empty() && !S.empty() ){
-        refNumR = R.printList();
-        refNumS = S.printList();
-        if( refNumR != refNumS ){
-            printf("ERROR!!  refNumR:%d refNumS:%d\n",refNumR, refNumS);
-            goto EXIT;
+        if(DebugIsEnabled('j')){
+            refNumR = R.printList();
+            refNumS = S.printList();
+            if( refNumR != refNumS ){
+                printf("ERROR!!  refNumR:%d refNumS:%d\n",refNumR, refNumS);
+                goto EXIT;
+            }
         }
-        
+        R.eraseEmptyNodes();
+        S.eraseEmptyNodes();
 
-        printf("-----------------Output:");
+        DEBUG('j',"-----------------Output:");
         while( R.front()->pid == -1 && S.front()->pid == -1){
             IntervalNode * rn = R.pop();
             IntervalNode * sn = S.pop();
             if( rn->range.min == sn->range.min){
-                printf("[%d, %d], ",rn->range.min, rn->range.min);
+                KeyType keyR = rn->range.min;
+                KeyType keyS = sn->range.min;
+                KeyType rfkeyR,rfkeyS;
+                RecordId recR, recS;
+                string valueR = "";
+                string valueS = "";
+
+                //rfR.read(recR, rfkeyR, valueR);
+                //rfS.read(recS, rfkeyS, valueS);
+                printf("Node R: (%d, \"%s\")\n",keyR, valueR.c_str());
+                printf("Node S: (%d, \"%s\")\n\n",keyS, valueS.c_str());
+
             }else{
                 /*printf("Output error!!!!!!!!!\n");
                 R.printList();
@@ -850,31 +894,34 @@ RC SqlEngine::join(const string& tableR, const string& tableS)
             delete rn;
             delete sn;
         }
-        printf("\n");
+        DEBUG('j',"\n");
         R.eraseEmptyNodes();
         S.eraseEmptyNodes();
+
 
         if( R.empty() || S.empty()) break;
 
         IntervalNode *left, *chosenOne, *bn;
         if( R.front()->range.min <= S.front()->range.min  && R.front()->pid != -1 ){
             left = R.front();
-            bn = left->biggestNeighbour();
-            if( (bn->range.max - bn->range.min) > (left->range.max - left->range.min) ){
-                printf("\n---------------- Opening Nodes of List S: ");
+            rc = left->biggestNeighbour( bn );
+            if(rc != 0 ) goto EXIT;
+            if(bn != NULL && ((bn->range.max - bn->range.min) > (left->range.max - left->range.min)) ){
+                DEBUG('j',"\n---------------- Opening Nodes of List S: ");
                 rc = S.openNode( bn );
             }else{
-                printf("\n---------------- Opening Nodes of List R: ");
+                DEBUG('j',"\n---------------- Opening Nodes of List R: ");
                 rc = R.openNode( left );
             }
         }else{
             left = S.front();
-            bn = left->biggestNeighbour();
-            if( (bn->range.max - bn->range.min) > (left->range.max - left->range.min) ){
-                printf("\n---------------- Opening Nodes of List R: ");
+            rc = left->biggestNeighbour( bn );
+            if(rc != 0 ) goto EXIT;
+            if(bn != NULL &&  ((bn->range.max - bn->range.min) > (left->range.max - left->range.min)) ){
+                DEBUG('j',"\n---------------- Opening Nodes of List R: ");
                 rc = R.openNode( bn );
             }else{
-                printf("\n---------------- Opening Nodes of List S: ");
+                DEBUG('j',"\n---------------- Opening Nodes of List S: ");
                 rc = S.openNode( left );
             }
         }
@@ -940,14 +987,15 @@ RC SqlEngine::normal_join(const string& tableR, const string& tableS)
     KeyType keyR,keyS;
     KeyType rfkeyR,rfkeyS;
     RecordId recR, recS;
-    string valueR,valueS;
+    string valueR = "";
+    string valueS = "";
     int valueRint, valueSint;
     idxR.getFirstKey( cursorR );
     idxS.getFirstKey( cursorS );
     idxR.readForward( cursorR, keyR, recR );
     idxS.readForward( cursorS, keyS, recS );
-    rfR.read(recR, rfkeyR, valueR);
-    rfS.read(recS, rfkeyS, valueS);
+    //rfR.read(recR, rfkeyR, valueR);
+    //rfS.read(recS, rfkeyS, valueS);
 
     while( cursorR.pid != -1  && cursorS.pid != -1){
         if( keyR == keyS ){
@@ -955,14 +1003,14 @@ RC SqlEngine::normal_join(const string& tableR, const string& tableS)
             printf("Node S: (%d, \"%s\")\n\n",keyS, valueS.c_str());
             idxR.readForward( cursorR, keyR, recR );
             idxS.readForward( cursorS, keyS, recS );
-            rfR.read(recR, rfkeyR, valueR);
-            rfS.read(recS, rfkeyS, valueS);
+    //        rfR.read(recR, rfkeyR, valueR);
+    //        rfS.read(recS, rfkeyS, valueS);
         }else if( keyR < keyS ){
             idxR.readForward( cursorR, keyR, recR );
-            rfR.read(recR, rfkeyR, valueR);
+    //        rfR.read(recR, rfkeyR, valueR);
         }else{
             idxS.readForward( cursorS, keyS, recS );
-            rfS.read(recS, rfkeyS, valueS);
+    //        rfS.read(recS, rfkeyS, valueS);
         }
     }
 

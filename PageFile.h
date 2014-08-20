@@ -85,7 +85,7 @@ class PageFile {
   //
   // the following set of members implement LRU caching 
   //
-  static const int CACHE_COUNT = 10  ;
+  static const int CACHE_COUNT = 2  ;
 
   static int cacheClock; // clock tick counter for LRU policy
 

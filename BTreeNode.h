@@ -38,9 +38,8 @@ private:
     
     RecordId * rids;
     PageId nextPage;
-    RC getMinKey( KeyType &minKey );
-    RC getMaxKey( KeyType &maxKey );
-    PageFile pf;
+    RC getMinKey( PageFile &pf, KeyType &minKey);
+    RC getMaxKey( PageFile &pf, KeyType &maxKey);
 public:
     KeyType * keys;
     //key count

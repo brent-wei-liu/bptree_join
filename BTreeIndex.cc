@@ -140,7 +140,8 @@ RC BTreeIndex::insert(KeyType key, const RecordId& rid)
       rc = rnode.write(3,pf);
       if(rc != 0) goto ERROR;
       
-      rnode.insertNonFull(key, rid, newPid, pf);
+      rc = rnode.insertNonFull(key, rid, newPid, pf);
+      if( rc != 0 ) goto ERROR;
       rnode.write(pf);
 
       rootPid = 1; 
@@ -168,7 +169,7 @@ RC BTreeIndex::insert(KeyType key, const RecordId& rid)
       rootPid = newRoot.pid = newPid;
       newRoot.minKey = root.minKey;
       newRoot.maxKey = root.maxKey;
-      newPid++;
+      newPid ++;
       rc = newRoot.splitChild(0,newPid, pf);
       newPid ++;
       if(rc != 0) goto ERROR;
@@ -348,6 +349,9 @@ ERROR:
 
 }
 */
+
+
+
 static PageId getRootPid(const char* page)
 {
   PageId rootPid;
